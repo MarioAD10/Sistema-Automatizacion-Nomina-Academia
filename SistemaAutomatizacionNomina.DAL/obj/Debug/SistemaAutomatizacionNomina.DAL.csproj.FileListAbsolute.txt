@@ -1,0 +1,9 @@
+C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatizacionNomina\SistemaAutomatizacionNomina.DAL\bin\Debug\SistemaAutomatizacionNomina.DAL.dll
+C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatizacionNomina\SistemaAutomatizacionNomina.DAL\bin\Debug\SistemaAutomatizacionNomina.DAL.pdb
+C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatizacionNomina\SistemaAutomatizacionNomina.DAL\bin\Debug\SistemaAutomatizacionNomina.Entities.dll
+C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatizacionNomina\SistemaAutomatizacionNomina.DAL\bin\Debug\SistemaAutomatizacionNomina.Entities.pdb
+C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatizacionNomina\SistemaAutomatizacionNomina.DAL\obj\Debug\SistemaAutomatizacionNomina.DAL.csproj.AssemblyReference.cache
+C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatizacionNomina\SistemaAutomatizacionNomina.DAL\obj\Debug\SistemaAutomatizacionNomina.DAL.csproj.CoreCompileInputs.cache
+C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatizacionNomina\SistemaAutomatizacionNomina.DAL\obj\Debug\SistemaA.9906336D.Up2Date
+C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatizacionNomina\SistemaAutomatizacionNomina.DAL\obj\Debug\SistemaAutomatizacionNomina.DAL.dll
+C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatizacionNomina\SistemaAutomatizacionNomina.DAL\obj\Debug\SistemaAutomatizacionNomina.DAL.pdb

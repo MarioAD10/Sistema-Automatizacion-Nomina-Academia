@@ -1,0 +1,6 @@
+C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatizacionNomina\SistemaAutomatizacionNomina.Entities\bin\Debug\SistemaAutomatizacionNomina.Entities.dll
+C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatizacionNomina\SistemaAutomatizacionNomina.Entities\bin\Debug\SistemaAutomatizacionNomina.Entities.pdb
+C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatizacionNomina\SistemaAutomatizacionNomina.Entities\obj\Debug\SistemaAutomatizacionNomina.Entities.csproj.AssemblyReference.cache
+C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatizacionNomina\SistemaAutomatizacionNomina.Entities\obj\Debug\SistemaAutomatizacionNomina.Entities.csproj.CoreCompileInputs.cache
+C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatizacionNomina\SistemaAutomatizacionNomina.Entities\obj\Debug\SistemaAutomatizacionNomina.Entities.dll
+C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatizacionNomina\SistemaAutomatizacionNomina.Entities\obj\Debug\SistemaAutomatizacionNomina.Entities.pdb

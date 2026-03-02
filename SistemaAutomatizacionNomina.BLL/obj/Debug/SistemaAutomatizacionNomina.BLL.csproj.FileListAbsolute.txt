@@ -1,0 +1,11 @@
+C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatizacionNomina\SistemaAutomatizacionNomina.BLL\bin\Debug\SistemaAutomatizacionNomina.BLL.dll
+C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatizacionNomina\SistemaAutomatizacionNomina.BLL\bin\Debug\SistemaAutomatizacionNomina.BLL.pdb
+C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatizacionNomina\SistemaAutomatizacionNomina.BLL\bin\Debug\SistemaAutomatizacionNomina.DAL.dll
+C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatizacionNomina\SistemaAutomatizacionNomina.BLL\bin\Debug\SistemaAutomatizacionNomina.Entities.dll
+C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatizacionNomina\SistemaAutomatizacionNomina.BLL\bin\Debug\SistemaAutomatizacionNomina.DAL.pdb
+C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatizacionNomina\SistemaAutomatizacionNomina.BLL\bin\Debug\SistemaAutomatizacionNomina.Entities.pdb
+C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatizacionNomina\SistemaAutomatizacionNomina.BLL\obj\Debug\SistemaAutomatizacionNomina.BLL.csproj.AssemblyReference.cache
+C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatizacionNomina\SistemaAutomatizacionNomina.BLL\obj\Debug\SistemaAutomatizacionNomina.BLL.csproj.CoreCompileInputs.cache
+C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatizacionNomina\SistemaAutomatizacionNomina.BLL\obj\Debug\SistemaA.C85D5CEB.Up2Date
+C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatizacionNomina\SistemaAutomatizacionNomina.BLL\obj\Debug\SistemaAutomatizacionNomina.BLL.dll
+C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatizacionNomina\SistemaAutomatizacionNomina.BLL\obj\Debug\SistemaAutomatizacionNomina.BLL.pdb
