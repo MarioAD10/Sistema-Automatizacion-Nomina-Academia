@@ -13,6 +13,14 @@ CREATE TABLE Usuario (
     Rol VARCHAR(50) NOT NULL
 );
 
+-- Inserts
+
+INSERT INTO Usuario (Nombre, Password, Rol)
+VALUES
+('Mario', '1234', 'Admin'),
+('Tony', '1111', 'Admin');
+
+
 -----------------------------------------
 -----------------------------------------
 --TABLA MAESTROS 
