@@ -1,1 +1,1 @@
-USE SistemaOpinionesDB;
+USE SistemaNominaDB;
