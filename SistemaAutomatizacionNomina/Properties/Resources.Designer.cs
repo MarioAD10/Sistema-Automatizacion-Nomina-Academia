@@ -103,6 +103,16 @@ namespace SistemaAutomatizacionNomina.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_búsqueda_96__3_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-búsqueda-96 (3)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_pago_70 {
             get {
                 object obj = ResourceManager.GetObject("icons8-pago-70", resourceCulture);

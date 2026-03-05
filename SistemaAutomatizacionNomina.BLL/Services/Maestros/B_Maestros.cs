@@ -1,8 +1,8 @@
-﻿using SistemaAutomatizacionNomina.DAL.Repositories.Login;
-using SistemaAutomatizacionNomina.Entities.Entities.Login;
+﻿using SistemaAutomatizacionNomina.DAL.Repositories.Maestros;
+using SistemaAutomatizacionNomina.Entities.Entities.Maestros;
 using System.Collections.Generic;
 
-namespace SistemaAutomatizacionNomina.BLL.Services.Login
+namespace SistemaAutomatizacionNomina.BLL.Services.Maestros
 {
     public class B_Maestros
     {

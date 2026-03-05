@@ -7,28 +7,28 @@
       "RelativeMoniker": "D:0:0:{A9AE54B7-7118-41AF-A8D7-A75F2F08A7DB}|SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.UI.csproj|solutionrelative:sistemaautomatizacionnomina\\forms\\frmmaestros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A9AE54B7-7118-41AF-A8D7-A75F2F08A7DB}|SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.UI.csproj|c:\\users\\owner\\desktop\\itla\\6to cuatrimestre\\programaci\u00F3n iii\\sistemaautomatizacionnomina\\sistemaautomatizacionnomina\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A9AE54B7-7118-41AF-A8D7-A75F2F08A7DB}|SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.UI.csproj|solutionrelative:sistemaautomatizacionnomina\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A9AE54B7-7118-41AF-A8D7-A75F2F08A7DB}|SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.UI.csproj|c:\\users\\owner\\desktop\\itla\\6to cuatrimestre\\programaci\u00F3n iii\\sistemaautomatizacionnomina\\sistemaautomatizacionnomina\\forms\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A9AE54B7-7118-41AF-A8D7-A75F2F08A7DB}|SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.UI.csproj|solutionrelative:sistemaautomatizacionnomina\\forms\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A9AE54B7-7118-41AF-A8D7-A75F2F08A7DB}|SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.UI.csproj|c:\\users\\owner\\desktop\\itla\\6to cuatrimestre\\programaci\u00F3n iii\\sistemaautomatizacionnomina\\sistemaautomatizacionnomina\\forms\\frmmaestros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A9AE54B7-7118-41AF-A8D7-A75F2F08A7DB}|SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.UI.csproj|C:\\Users\\Owner\\Desktop\\ITLA\\6TO CUATRIMESTRE\\Programaci\u00F3n III\\SistemaAutomatizacionNomina\\sistemaautomatizacionnomina\\forms\\frmmaestros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A9AE54B7-7118-41AF-A8D7-A75F2F08A7DB}|SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.UI.csproj|solutionrelative:sistemaautomatizacionnomina\\forms\\frmmaestros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2EF99069-2733-4538-BFB4-51028F8F6243}|SistemaAutomatizacionNomina.DAL\\SistemaAutomatizacionNomina.DAL.csproj|C:\\Users\\Owner\\Desktop\\ITLA\\6TO CUATRIMESTRE\\Programaci\u00F3n III\\SistemaAutomatizacionNomina\\sistemaautomatizacionnomina.dal\\repositories\\login\\d_maestros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2EF99069-2733-4538-BFB4-51028F8F6243}|SistemaAutomatizacionNomina.DAL\\SistemaAutomatizacionNomina.DAL.csproj|solutionrelative:sistemaautomatizacionnomina.dal\\repositories\\login\\d_maestros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A9AE54B7-7118-41AF-A8D7-A75F2F08A7DB}|SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.UI.csproj|C:\\Users\\Owner\\Desktop\\ITLA\\6TO CUATRIMESTRE\\Programaci\u00F3n III\\SistemaAutomatizacionNomina\\sistemaautomatizacionnomina\\forms\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A9AE54B7-7118-41AF-A8D7-A75F2F08A7DB}|SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.UI.csproj|solutionrelative:sistemaautomatizacionnomina\\forms\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F459EAAB-C29B-4598-B3B5-471D726D8DB8}|SistemaAutomatizacionNomina.Entities\\SistemaAutomatizacionNomina.Entities.csproj|C:\\Users\\Owner\\Desktop\\ITLA\\6TO CUATRIMESTRE\\Programaci\u00F3n III\\SistemaAutomatizacionNomina\\sistemaautomatizacionnomina.entities\\entities\\login\\e_maestros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F459EAAB-C29B-4598-B3B5-471D726D8DB8}|SistemaAutomatizacionNomina.Entities\\SistemaAutomatizacionNomina.Entities.csproj|solutionrelative:sistemaautomatizacionnomina.entities\\entities\\login\\e_maestros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2EF99069-2733-4538-BFB4-51028F8F6243}|SistemaAutomatizacionNomina.DAL\\SistemaAutomatizacionNomina.DAL.csproj|c:\\users\\owner\\desktop\\itla\\6to cuatrimestre\\programaci\u00F3n iii\\sistemaautomatizacionnomina\\sistemaautomatizacionnomina.dal\\repositories\\maestros\\d_maestros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EF99069-2733-4538-BFB4-51028F8F6243}|SistemaAutomatizacionNomina.DAL\\SistemaAutomatizacionNomina.DAL.csproj|solutionrelative:sistemaautomatizacionnomina.dal\\repositories\\maestros\\d_maestros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A84AB86E-A01D-430E-A128-A81BEF986B0E}|SistemaAutomatizacionNomina.BLL\\SistemaAutomatizacionNomina.BLL.csproj|C:\\Users\\Owner\\Desktop\\ITLA\\6TO CUATRIMESTRE\\Programaci\u00F3n III\\SistemaAutomatizacionNomina\\sistemaautomatizacionnomina.bll\\services\\login\\b_maestros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A84AB86E-A01D-430E-A128-A81BEF986B0E}|SistemaAutomatizacionNomina.BLL\\SistemaAutomatizacionNomina.BLL.csproj|solutionrelative:sistemaautomatizacionnomina.bll\\services\\login\\b_maestros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F459EAAB-C29B-4598-B3B5-471D726D8DB8}|SistemaAutomatizacionNomina.Entities\\SistemaAutomatizacionNomina.Entities.csproj|c:\\users\\owner\\desktop\\itla\\6to cuatrimestre\\programaci\u00F3n iii\\sistemaautomatizacionnomina\\sistemaautomatizacionnomina.entities\\entities\\maestros\\e_maestros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F459EAAB-C29B-4598-B3B5-471D726D8DB8}|SistemaAutomatizacionNomina.Entities\\SistemaAutomatizacionNomina.Entities.csproj|solutionrelative:sistemaautomatizacionnomina.entities\\entities\\maestros\\e_maestros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A84AB86E-A01D-430E-A128-A81BEF986B0E}|SistemaAutomatizacionNomina.BLL\\SistemaAutomatizacionNomina.BLL.csproj|c:\\users\\owner\\desktop\\itla\\6to cuatrimestre\\programaci\u00F3n iii\\sistemaautomatizacionnomina\\sistemaautomatizacionnomina.bll\\services\\maestros\\b_maestros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A84AB86E-A01D-430E-A128-A81BEF986B0E}|SistemaAutomatizacionNomina.BLL\\SistemaAutomatizacionNomina.BLL.csproj|solutionrelative:sistemaautomatizacionnomina.bll\\services\\maestros\\b_maestros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9AE54B7-7118-41AF-A8D7-A75F2F08A7DB}|SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.UI.csproj|C:\\Users\\Owner\\Desktop\\ITLA\\6TO CUATRIMESTRE\\Programaci\u00F3n III\\SistemaAutomatizacionNomina\\sistemaautomatizacionnomina\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9AE54B7-7118-41AF-A8D7-A75F2F08A7DB}|SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.UI.csproj|solutionrelative:sistemaautomatizacionnomina\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,7 +46,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Owner\\Desktop\\ITLA\\6TO CUATRIMESTRE\\Programaci\u00F3n III\\SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina\\Program.cs",
               "RelativeDocumentMoniker": "SistemaAutomatizacionNomina\\Program.cs",
@@ -54,18 +54,17 @@
               "RelativeToolTip": "SistemaAutomatizacionNomina\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-05T02:31:45.884Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-05T02:31:45.884Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "frmMaestros.cs",
               "DocumentMoniker": "C:\\Users\\Owner\\Desktop\\ITLA\\6TO CUATRIMESTRE\\Programaci\u00F3n III\\SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina\\Forms\\frmMaestros.cs",
               "RelativeDocumentMoniker": "SistemaAutomatizacionNomina\\Forms\\frmMaestros.cs",
               "ToolTip": "C:\\Users\\Owner\\Desktop\\ITLA\\6TO CUATRIMESTRE\\Programaci\u00F3n III\\SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina\\Forms\\frmMaestros.cs",
               "RelativeToolTip": "SistemaAutomatizacionNomina\\Forms\\frmMaestros.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAnwBcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACwAAAAAAAAAAAAjwEAAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-05T02:26:48.251Z",
               "EditorCaption": ""
@@ -96,38 +95,38 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "B_Maestros.cs",
-              "DocumentMoniker": "C:\\Users\\Owner\\Desktop\\ITLA\\6TO CUATRIMESTRE\\Programaci\u00F3n III\\SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.BLL\\Services\\Login\\B_Maestros.cs",
-              "RelativeDocumentMoniker": "SistemaAutomatizacionNomina.BLL\\Services\\Login\\B_Maestros.cs",
-              "ToolTip": "C:\\Users\\Owner\\Desktop\\ITLA\\6TO CUATRIMESTRE\\Programaci\u00F3n III\\SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.BLL\\Services\\Login\\B_Maestros.cs",
-              "RelativeToolTip": "SistemaAutomatizacionNomina.BLL\\Services\\Login\\B_Maestros.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAnAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\Owner\\Desktop\\ITLA\\6TO CUATRIMESTRE\\Programaci\u00F3n III\\SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.BLL\\Services\\Maestros\\B_Maestros.cs",
+              "RelativeDocumentMoniker": "SistemaAutomatizacionNomina.BLL\\Services\\Maestros\\B_Maestros.cs",
+              "ToolTip": "C:\\Users\\Owner\\Desktop\\ITLA\\6TO CUATRIMESTRE\\Programaci\u00F3n III\\SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.BLL\\Services\\Maestros\\B_Maestros.cs",
+              "RelativeToolTip": "SistemaAutomatizacionNomina.BLL\\Services\\Maestros\\B_Maestros.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-04T16:48:57.174Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "D_Maestros.cs",
-              "DocumentMoniker": "C:\\Users\\Owner\\Desktop\\ITLA\\6TO CUATRIMESTRE\\Programaci\u00F3n III\\SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.DAL\\Repositories\\Login\\D_Maestros.cs",
-              "RelativeDocumentMoniker": "SistemaAutomatizacionNomina.DAL\\Repositories\\Login\\D_Maestros.cs",
-              "ToolTip": "C:\\Users\\Owner\\Desktop\\ITLA\\6TO CUATRIMESTRE\\Programaci\u00F3n III\\SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.DAL\\Repositories\\Login\\D_Maestros.cs",
-              "RelativeToolTip": "SistemaAutomatizacionNomina.DAL\\Repositories\\Login\\D_Maestros.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAAAYwEgAAAAAAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\Owner\\Desktop\\ITLA\\6TO CUATRIMESTRE\\Programaci\u00F3n III\\SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.DAL\\Repositories\\Maestros\\D_Maestros.cs",
+              "RelativeDocumentMoniker": "SistemaAutomatizacionNomina.DAL\\Repositories\\Maestros\\D_Maestros.cs",
+              "ToolTip": "C:\\Users\\Owner\\Desktop\\ITLA\\6TO CUATRIMESTRE\\Programaci\u00F3n III\\SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.DAL\\Repositories\\Maestros\\D_Maestros.cs",
+              "RelativeToolTip": "SistemaAutomatizacionNomina.DAL\\Repositories\\Maestros\\D_Maestros.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAQwAYAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-04T16:15:54.942Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "E_Maestros.cs",
-              "DocumentMoniker": "C:\\Users\\Owner\\Desktop\\ITLA\\6TO CUATRIMESTRE\\Programaci\u00F3n III\\SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.Entities\\Entities\\Login\\E_Maestros.cs",
-              "RelativeDocumentMoniker": "SistemaAutomatizacionNomina.Entities\\Entities\\Login\\E_Maestros.cs",
-              "ToolTip": "C:\\Users\\Owner\\Desktop\\ITLA\\6TO CUATRIMESTRE\\Programaci\u00F3n III\\SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.Entities\\Entities\\Login\\E_Maestros.cs",
-              "RelativeToolTip": "SistemaAutomatizacionNomina.Entities\\Entities\\Login\\E_Maestros.cs",
+              "DocumentMoniker": "C:\\Users\\Owner\\Desktop\\ITLA\\6TO CUATRIMESTRE\\Programaci\u00F3n III\\SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.Entities\\Entities\\Maestros\\E_Maestros.cs",
+              "RelativeDocumentMoniker": "SistemaAutomatizacionNomina.Entities\\Entities\\Maestros\\E_Maestros.cs",
+              "ToolTip": "C:\\Users\\Owner\\Desktop\\ITLA\\6TO CUATRIMESTRE\\Programaci\u00F3n III\\SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.Entities\\Entities\\Maestros\\E_Maestros.cs",
+              "RelativeToolTip": "SistemaAutomatizacionNomina.Entities\\Entities\\Maestros\\E_Maestros.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-04T16:11:15.412Z",

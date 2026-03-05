@@ -1,4 +1,4 @@
-﻿using SistemaAutomatizacionNomina.Entities.Entities.Login;
+﻿using SistemaAutomatizacionNomina.Entities.Entities.Maestros;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SistemaAutomatizacionNomina.DAL.Repositories.Login
+namespace SistemaAutomatizacionNomina.DAL.Repositories.Maestros
 {
     public class D_Maestros
     {
@@ -35,8 +35,7 @@ namespace SistemaAutomatizacionNomina.DAL.Repositories.Login
                         NombreCompleto = LeerFilas.GetString(1),
                         DocumentoIdentidad = LeerFilas.GetString(2),
                         Telefono = LeerFilas.GetString(3),
-                        TipoClase = LeerFilas.GetString(4),
-                        TarifaPorHora = LeerFilas.GetString(5)
+                        Ocupacion = LeerFilas.GetString(4)
                     });
                 }
 
@@ -55,8 +54,7 @@ namespace SistemaAutomatizacionNomina.DAL.Repositories.Login
                 cmd.Parameters.AddWithValue("@NombreCompleto", m.NombreCompleto);
                 cmd.Parameters.AddWithValue("@DocumentoIdentidad", m.DocumentoIdentidad);
                 cmd.Parameters.AddWithValue("@Telefono", m.Telefono);
-                cmd.Parameters.AddWithValue("@TipoClase", m.TipoClase);
-                cmd.Parameters.AddWithValue("@TarifaPorHora", m.TarifaPorHora);
+                cmd.Parameters.AddWithValue("@Ocupacion", m.Ocupacion);
 
                 try
                 {
@@ -82,8 +80,7 @@ namespace SistemaAutomatizacionNomina.DAL.Repositories.Login
                 cmd.Parameters.AddWithValue("@NombreCompleto", m.NombreCompleto);
                 cmd.Parameters.AddWithValue("@DocumentoIdentidad", m.DocumentoIdentidad);
                 cmd.Parameters.AddWithValue("@Telefono", m.Telefono);
-                cmd.Parameters.AddWithValue("@TipoClase", m.TipoClase);
-                cmd.Parameters.AddWithValue("@TarifaPorHora", m.TarifaPorHora);
+                cmd.Parameters.AddWithValue("@Ocupacion", m.Ocupacion);
 
                 try
                 {
