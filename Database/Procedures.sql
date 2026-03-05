@@ -2,6 +2,31 @@ USE SistemaNominaDB;
 
 -----------------------------------------
 -----------------------------------------
+--SP - LOGIN
+-----------------------------------------
+-----------------------------------------
+
+-- Login 
+
+CREATE PROCEDURE sp_LoginUsuario
+    @Nombre VARCHAR(100),
+    @Password VARCHAR(255)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT 
+        Nombre,
+        Rol
+    FROM Usuario
+    WHERE Nombre = @Nombre
+      AND Password = @Password;
+END;
+
+
+
+-----------------------------------------
+-----------------------------------------
 --SP - MAESTROS 
 -----------------------------------------
 -----------------------------------------
