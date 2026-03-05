@@ -13,23 +13,22 @@ CREATE PROCEDURE SP_InsertarMaestro
     @NombreCompleto VARCHAR(150),
     @DocumentoIdentidad VARCHAR(20),
     @Telefono VARCHAR(20),
-    @TipoClase VARCHAR(100),
-    @TarifaPorHora DECIMAL(10,2)
+    @Ocupacion VARCHAR(100)
 AS
 BEGIN
+    SET NOCOUNT ON;
+
     INSERT INTO Maestros (
         NombreCompleto,
         DocumentoIdentidad,
         Telefono,
-        TipoClase,
-        TarifaPorHora
+        Ocupacion
     )
     VALUES (
         @NombreCompleto,
         @DocumentoIdentidad,
         @Telefono,
-        @TipoClase,
-        @TarifaPorHora
+        @Ocupacion
     );
 END;
 
@@ -41,17 +40,17 @@ CREATE PROCEDURE SP_ActualizarMaestro
     @NombreCompleto VARCHAR(150),
     @DocumentoIdentidad VARCHAR(20),
     @Telefono VARCHAR(20),
-    @TipoClase VARCHAR(100),
-    @TarifaPorHora DECIMAL(10,2)
+    @Ocupacion VARCHAR(100)
 AS
 BEGIN
+    SET NOCOUNT ON;
+
     UPDATE Maestros
     SET 
         NombreCompleto = @NombreCompleto,
         DocumentoIdentidad = @DocumentoIdentidad,
         Telefono = @Telefono,
-        TipoClase = @TipoClase,
-        TarifaPorHora = @TarifaPorHora
+        Ocupacion = @Ocupacion
     WHERE IdMaestro = @IdMaestro;
 END;
 
@@ -80,8 +79,7 @@ BEGIN
         NombreCompleto,
         DocumentoIdentidad,
         Telefono,
-        TipoClase,
-        TarifaPorHora
+        Ocupacion
     FROM Maestros
     WHERE 
         LOWER(LTRIM(RTRIM(NombreCompleto))) 
