@@ -16,3 +16,22 @@ C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatiza
 C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatizacionNomina\SistemaAutomatizacionNomina\obj\Debug\SistemaA.58B39D49.Up2Date
 C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatizacionNomina\SistemaAutomatizacionNomina\obj\Debug\SistemaAutomatizacionNomina.exe
 C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatizacionNomina\SistemaAutomatizacionNomina\obj\Debug\SistemaAutomatizacionNomina.pdb
+C:\Users\Tony Peralta\Desktop\p33\SistemaAutomatizacionNomina\bin\Debug\SistemaAutomatizacionNomina.exe.config
+C:\Users\Tony Peralta\Desktop\p33\SistemaAutomatizacionNomina\bin\Debug\SistemaAutomatizacionNomina.exe
+C:\Users\Tony Peralta\Desktop\p33\SistemaAutomatizacionNomina\bin\Debug\SistemaAutomatizacionNomina.pdb
+C:\Users\Tony Peralta\Desktop\p33\SistemaAutomatizacionNomina\bin\Debug\SistemaAutomatizacionNomina.BLL.dll
+C:\Users\Tony Peralta\Desktop\p33\SistemaAutomatizacionNomina\bin\Debug\SistemaAutomatizacionNomina.DAL.dll
+C:\Users\Tony Peralta\Desktop\p33\SistemaAutomatizacionNomina\bin\Debug\SistemaAutomatizacionNomina.Entities.dll
+C:\Users\Tony Peralta\Desktop\p33\SistemaAutomatizacionNomina\bin\Debug\SistemaAutomatizacionNomina.BLL.pdb
+C:\Users\Tony Peralta\Desktop\p33\SistemaAutomatizacionNomina\bin\Debug\SistemaAutomatizacionNomina.DAL.pdb
+C:\Users\Tony Peralta\Desktop\p33\SistemaAutomatizacionNomina\bin\Debug\SistemaAutomatizacionNomina.Entities.pdb
+C:\Users\Tony Peralta\Desktop\p33\SistemaAutomatizacionNomina\obj\Debug\SistemaAutomatizacionNomina.UI.csproj.AssemblyReference.cache
+C:\Users\Tony Peralta\Desktop\p33\SistemaAutomatizacionNomina\obj\Debug\SistemaAutomatizacionNomina.exe.config
+C:\Users\Tony Peralta\Desktop\p33\SistemaAutomatizacionNomina\obj\Debug\SistemaAutomatizacionNomina.frmLogin.resources
+C:\Users\Tony Peralta\Desktop\p33\SistemaAutomatizacionNomina\obj\Debug\SistemaAutomatizacionNomina.frmMaestros.resources
+C:\Users\Tony Peralta\Desktop\p33\SistemaAutomatizacionNomina\obj\Debug\SistemaAutomatizacionNomina.Properties.Resources.resources
+C:\Users\Tony Peralta\Desktop\p33\SistemaAutomatizacionNomina\obj\Debug\SistemaAutomatizacionNomina.UI.csproj.GenerateResource.cache
+C:\Users\Tony Peralta\Desktop\p33\SistemaAutomatizacionNomina\obj\Debug\SistemaAutomatizacionNomina.UI.csproj.CoreCompileInputs.cache
+C:\Users\Tony Peralta\Desktop\p33\SistemaAutomatizacionNomina\obj\Debug\SistemaA.58B39D49.Up2Date
+C:\Users\Tony Peralta\Desktop\p33\SistemaAutomatizacionNomina\obj\Debug\SistemaAutomatizacionNomina.exe
+C:\Users\Tony Peralta\Desktop\p33\SistemaAutomatizacionNomina\obj\Debug\SistemaAutomatizacionNomina.pdb
