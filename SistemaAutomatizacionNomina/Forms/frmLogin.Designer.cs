@@ -68,9 +68,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(180, 230);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(250, 24);
+            this.label2.Size = new System.Drawing.Size(244, 24);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Academia de Música y Baile";
+            this.label2.Text = "Inicia sesión para continuar";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtUsuario
@@ -84,6 +84,7 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(258, 38);
             this.txtUsuario.TabIndex = 8;
+            this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsuario_KeyPress);
             // 
             // txtPassword
             // 
@@ -97,6 +98,7 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(258, 38);
             this.txtPassword.TabIndex = 11;
+            this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassword_KeyPress);
             // 
             // btnIngresar
             // 
@@ -109,6 +111,7 @@
             this.btnIngresar.TabIndex = 12;
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.UseVisualStyleBackColor = false;
+            this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
             // pbSalir
             // 
@@ -118,6 +121,7 @@
             this.pbSalir.Size = new System.Drawing.Size(75, 70);
             this.pbSalir.TabIndex = 13;
             this.pbSalir.TabStop = false;
+            this.pbSalir.Click += new System.EventHandler(this.pbSalir_Click);
             // 
             // pictureBox4
             // 
@@ -205,7 +209,6 @@
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
-            this.Load += new System.EventHandler(this.frmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbSalir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
