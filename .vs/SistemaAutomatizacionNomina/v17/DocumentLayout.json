@@ -1,26 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\domif\\OneDrive\\Escritorio\\proyecto P3\\Sistema-Automatizacion-Nomina-Academia\\",
+  "WorkspaceRootPath": "C:\\Users\\Owner\\Desktop\\ITLA\\6TO CUATRIMESTRE\\Programaci\u00F3n III\\SistemaAutomatizacionNomina\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A9AE54B7-7118-41AF-A8D7-A75F2F08A7DB}|SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.UI.csproj|c:\\users\\domif\\onedrive\\escritorio\\proyecto p3\\sistema-automatizacion-nomina-academia\\sistemaautomatizacionnomina\\forms\\frmmaestros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A9AE54B7-7118-41AF-A8D7-A75F2F08A7DB}|SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.UI.csproj|solutionrelative:sistemaautomatizacionnomina\\forms\\frmmaestros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2EF99069-2733-4538-BFB4-51028F8F6243}|SistemaAutomatizacionNomina.DAL\\SistemaAutomatizacionNomina.DAL.csproj|c:\\users\\owner\\desktop\\itla\\6to cuatrimestre\\programaci\u00F3n iii\\sistemaautomatizacionnomina\\sistemaautomatizacionnomina.dal\\repositories\\maestros\\d_maestros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EF99069-2733-4538-BFB4-51028F8F6243}|SistemaAutomatizacionNomina.DAL\\SistemaAutomatizacionNomina.DAL.csproj|solutionrelative:sistemaautomatizacionnomina.dal\\repositories\\maestros\\d_maestros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A9AE54B7-7118-41AF-A8D7-A75F2F08A7DB}|SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.UI.csproj|c:\\users\\domif\\onedrive\\escritorio\\proyecto p3\\sistema-automatizacion-nomina-academia\\sistemaautomatizacionnomina\\forms\\frmmaestros.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A9AE54B7-7118-41AF-A8D7-A75F2F08A7DB}|SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.UI.csproj|solutionrelative:sistemaautomatizacionnomina\\forms\\frmmaestros.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F459EAAB-C29B-4598-B3B5-471D726D8DB8}|SistemaAutomatizacionNomina.Entities\\SistemaAutomatizacionNomina.Entities.csproj|c:\\users\\owner\\desktop\\itla\\6to cuatrimestre\\programaci\u00F3n iii\\sistemaautomatizacionnomina\\sistemaautomatizacionnomina.entities\\entities\\maestros\\e_maestros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F459EAAB-C29B-4598-B3B5-471D726D8DB8}|SistemaAutomatizacionNomina.Entities\\SistemaAutomatizacionNomina.Entities.csproj|solutionrelative:sistemaautomatizacionnomina.entities\\entities\\maestros\\e_maestros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A9AE54B7-7118-41AF-A8D7-A75F2F08A7DB}|SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.UI.csproj|C:\\Users\\domif\\OneDrive\\Escritorio\\proyecto P3\\Sistema-Automatizacion-Nomina-Academia\\sistemaautomatizacionnomina\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A9AE54B7-7118-41AF-A8D7-A75F2F08A7DB}|SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.UI.csproj|solutionrelative:sistemaautomatizacionnomina\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A9AE54B7-7118-41AF-A8D7-A75F2F08A7DB}|SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.UI.csproj|C:\\Users\\domif\\OneDrive\\Escritorio\\proyecto P3\\Sistema-Automatizacion-Nomina-Academia\\sistemaautomatizacionnomina\\forms\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A9AE54B7-7118-41AF-A8D7-A75F2F08A7DB}|SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.UI.csproj|solutionrelative:sistemaautomatizacionnomina\\forms\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A9AE54B7-7118-41AF-A8D7-A75F2F08A7DB}|SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.UI.csproj|C:\\Users\\domif\\OneDrive\\Escritorio\\proyecto P3\\Sistema-Automatizacion-Nomina-Academia\\sistemaautomatizacionnomina\\forms\\frmmaestros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A9AE54B7-7118-41AF-A8D7-A75F2F08A7DB}|SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.UI.csproj|solutionrelative:sistemaautomatizacionnomina\\forms\\frmmaestros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A84AB86E-A01D-430E-A128-A81BEF986B0E}|SistemaAutomatizacionNomina.BLL\\SistemaAutomatizacionNomina.BLL.csproj|c:\\users\\owner\\desktop\\itla\\6to cuatrimestre\\programaci\u00F3n iii\\sistemaautomatizacionnomina\\sistemaautomatizacionnomina.bll\\services\\maestros\\b_maestros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A84AB86E-A01D-430E-A128-A81BEF986B0E}|SistemaAutomatizacionNomina.BLL\\SistemaAutomatizacionNomina.BLL.csproj|solutionrelative:sistemaautomatizacionnomina.bll\\services\\maestros\\b_maestros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,71 +22,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "frmMaestros.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\domif\\OneDrive\\Escritorio\\proyecto P3\\Sistema-Automatizacion-Nomina-Academia\\SistemaAutomatizacionNomina\\Forms\\frmMaestros.Designer.cs",
-              "RelativeDocumentMoniker": "SistemaAutomatizacionNomina\\Forms\\frmMaestros.Designer.cs",
-              "ToolTip": "C:\\Users\\domif\\OneDrive\\Escritorio\\proyecto P3\\Sistema-Automatizacion-Nomina-Academia\\SistemaAutomatizacionNomina\\Forms\\frmMaestros.Designer.cs",
-              "RelativeToolTip": "SistemaAutomatizacionNomina\\Forms\\frmMaestros.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-05T18:22:24.671Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "frmLogin.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\domif\\OneDrive\\Escritorio\\proyecto P3\\Sistema-Automatizacion-Nomina-Academia\\SistemaAutomatizacionNomina\\Forms\\frmLogin.cs",
-              "RelativeDocumentMoniker": "SistemaAutomatizacionNomina\\Forms\\frmLogin.cs",
-              "ToolTip": "C:\\Users\\domif\\OneDrive\\Escritorio\\proyecto P3\\Sistema-Automatizacion-Nomina-Academia\\SistemaAutomatizacionNomina\\Forms\\frmLogin.cs [Design]",
-              "RelativeToolTip": "SistemaAutomatizacionNomina\\Forms\\frmLogin.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-05T04:44:03.671Z"
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\domif\\OneDrive\\Escritorio\\proyecto P3\\Sistema-Automatizacion-Nomina-Academia\\SistemaAutomatizacionNomina\\Program.cs",
-              "RelativeDocumentMoniker": "SistemaAutomatizacionNomina\\Program.cs",
-              "ToolTip": "C:\\Users\\domif\\OneDrive\\Escritorio\\proyecto P3\\Sistema-Automatizacion-Nomina-Academia\\SistemaAutomatizacionNomina\\Program.cs",
-              "RelativeToolTip": "SistemaAutomatizacionNomina\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAArAAAAAAAAAA==",
+              "Title": "B_Maestros.cs",
+              "DocumentMoniker": "C:\\Users\\Owner\\Desktop\\ITLA\\6TO CUATRIMESTRE\\Programaci\u00F3n III\\SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.BLL\\Services\\Maestros\\B_Maestros.cs",
+              "RelativeDocumentMoniker": "SistemaAutomatizacionNomina.BLL\\Services\\Maestros\\B_Maestros.cs",
+              "ToolTip": "C:\\Users\\Owner\\Desktop\\ITLA\\6TO CUATRIMESTRE\\Programaci\u00F3n III\\SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.BLL\\Services\\Maestros\\B_Maestros.cs",
+              "RelativeToolTip": "SistemaAutomatizacionNomina.BLL\\Services\\Maestros\\B_Maestros.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-05T02:25:38.201Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "frmMaestros.cs",
-              "DocumentMoniker": "C:\\Users\\domif\\OneDrive\\Escritorio\\proyecto P3\\Sistema-Automatizacion-Nomina-Academia\\SistemaAutomatizacionNomina\\Forms\\frmMaestros.cs",
-              "RelativeDocumentMoniker": "SistemaAutomatizacionNomina\\Forms\\frmMaestros.cs",
-              "ToolTip": "C:\\Users\\domif\\OneDrive\\Escritorio\\proyecto P3\\Sistema-Automatizacion-Nomina-Academia\\SistemaAutomatizacionNomina\\Forms\\frmMaestros.cs",
-              "RelativeToolTip": "SistemaAutomatizacionNomina\\Forms\\frmMaestros.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABAAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-05T01:12:32.688Z",
+              "WhenOpened": "2026-03-06T14:14:25.049Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "frmMaestros.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\domif\\OneDrive\\Escritorio\\proyecto P3\\Sistema-Automatizacion-Nomina-Academia\\SistemaAutomatizacionNomina\\Forms\\frmMaestros.cs",
-              "RelativeDocumentMoniker": "SistemaAutomatizacionNomina\\Forms\\frmMaestros.cs",
-              "ToolTip": "C:\\Users\\domif\\OneDrive\\Escritorio\\proyecto P3\\Sistema-Automatizacion-Nomina-Academia\\SistemaAutomatizacionNomina\\Forms\\frmMaestros.cs [Design]",
-              "RelativeToolTip": "SistemaAutomatizacionNomina\\Forms\\frmMaestros.cs [Design]",
+              "DocumentIndex": 0,
+              "Title": "D_Maestros.cs",
+              "DocumentMoniker": "C:\\Users\\Owner\\Desktop\\ITLA\\6TO CUATRIMESTRE\\Programaci\u00F3n III\\SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.DAL\\Repositories\\Maestros\\D_Maestros.cs",
+              "RelativeDocumentMoniker": "SistemaAutomatizacionNomina.DAL\\Repositories\\Maestros\\D_Maestros.cs",
+              "ToolTip": "C:\\Users\\Owner\\Desktop\\ITLA\\6TO CUATRIMESTRE\\Programaci\u00F3n III\\SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.DAL\\Repositories\\Maestros\\D_Maestros.cs",
+              "RelativeToolTip": "SistemaAutomatizacionNomina.DAL\\Repositories\\Maestros\\D_Maestros.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-04T15:01:12.287Z"
+              "WhenOpened": "2026-03-06T14:14:09.513Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "E_Maestros.cs",
+              "DocumentMoniker": "C:\\Users\\Owner\\Desktop\\ITLA\\6TO CUATRIMESTRE\\Programaci\u00F3n III\\SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.Entities\\Entities\\Maestros\\E_Maestros.cs",
+              "RelativeDocumentMoniker": "SistemaAutomatizacionNomina.Entities\\Entities\\Maestros\\E_Maestros.cs",
+              "ToolTip": "C:\\Users\\Owner\\Desktop\\ITLA\\6TO CUATRIMESTRE\\Programaci\u00F3n III\\SistemaAutomatizacionNomina\\SistemaAutomatizacionNomina.Entities\\Entities\\Maestros\\E_Maestros.cs",
+              "RelativeToolTip": "SistemaAutomatizacionNomina.Entities\\Entities\\Maestros\\E_Maestros.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-06T14:13:48.829Z",
+              "EditorCaption": ""
             }
           ]
         }
