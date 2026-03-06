@@ -2,12 +2,14 @@
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Web.WebView2.Core;
+using SistemaAutomatizacionNomina.BLL.Services.Login;
+using SistemaAutomatizacionNomina.Entities.Entities.Login;
 
 namespace SistemaAutomatizacionNomina
 {
     public partial class frmLogin : Form
     {
-        public frmLogin()
+        public frmLogin() 
         {
             InitializeComponent();
             this.Load += new EventHandler(frmLogin_Load);
@@ -15,6 +17,10 @@ namespace SistemaAutomatizacionNomina
 
         private async void frmLogin_Load(object sender, EventArgs e)
         {
+            // Tamaño y posición del form
+            this.Size = new System.Drawing.Size(900, 600);
+            this.StartPosition = FormStartPosition.CenterScreen;
+
             await webView21.EnsureCoreWebView2Async();
             webView21.CoreWebView2.WebMessageReceived += CoreWebView2_WebMessageReceived;
 
@@ -30,8 +36,6 @@ namespace SistemaAutomatizacionNomina
     font-family: 'Segoe UI', sans-serif;
     display: flex;
   }
-
-  /* ── PANEL IZQUIERDO ── */
   .left {
     width: 46%;
     background: linear-gradient(160deg, #2a5c46 0%, #3c7962 55%, #4c956c 100%);
@@ -65,8 +69,6 @@ namespace SistemaAutomatizacionNomina
   }
   .dot { width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,.35); }
   .dot.active { background:#fff; width:18px; border-radius:3px; }
-
-  /* ── PANEL DERECHO ── */
   .right {
     flex:1; display:flex; flex-direction:column;
     justify-content:center; align-items:center;
@@ -80,8 +82,6 @@ namespace SistemaAutomatizacionNomina
     background-size:40px 40px; opacity:.28; pointer-events:none;
   }
   .card { position:relative; z-index:1; width:100%; max-width:340px; }
-
-  /* Avatar */
   .avatar {
     width:72px; height:72px; background:#eef6f1;
     border:2px solid #d8ece3; border-radius:50%;
@@ -91,8 +91,6 @@ namespace SistemaAutomatizacionNomina
   .avatar svg { width:36px; height:36px; }
   .card-title { font-size:1.6rem; font-weight:700; color:#1a2e25; text-align:center; margin-bottom:4px; }
   .card-sub   { font-size:.82rem; color:#7a9e8e; text-align:center; margin-bottom:28px; }
-
-  /* Campos */
   .field { margin-bottom:15px; }
   .field label {
     display:block; font-size:.72rem; font-weight:600; color:#7a9e8e;
@@ -121,8 +119,6 @@ namespace SistemaAutomatizacionNomina
   }
   .eye-btn:hover { color:#3c7962; }
   .eye-btn svg { width:17px; height:17px; }
-
-  /* Botón Ingresar */
   .btn-login {
     width:100%; padding:13px; margin-top:6px; border:none; cursor:pointer;
     border-radius:10px;
@@ -134,18 +130,13 @@ namespace SistemaAutomatizacionNomina
   }
   .btn-login:hover { transform:translateY(-1px); box-shadow:0 10px 24px rgba(42,92,70,.34); background:linear-gradient(135deg,#4c956c,#3c7962); }
   .btn-login:active { transform:translateY(0); }
-
-  /* Link */
   .forgot { display:block; text-align:center; margin-top:16px; font-size:.83rem; color:#3c7962; text-decoration:none; cursor:pointer; }
   .forgot:hover { color:#2a5c46; text-decoration:underline; }
-
-  /* Error */
   .error-msg { display:none; background:#fff0f0; border:1px solid #f5c0c0; border-radius:8px; padding:9px 12px; font-size:.82rem; color:#c0392b; margin-bottom:12px; text-align:center; }
   .error-msg.show { display:block; }
 </style>
 </head>
 <body>
-
 <div class='left'>
   <div class='star'>
     <svg viewBox='0 0 80 80' fill='none'>
@@ -156,12 +147,9 @@ namespace SistemaAutomatizacionNomina
   <h1>¡Bienvenido!</h1>
   <p>Ingresa tus credenciales para acceder al sistema</p>
   <div class='dots'>
-    <div class='dot active'></div>
-    <div class='dot'></div>
-    <div class='dot'></div>
+    <div class='dot active'></div><div class='dot'></div><div class='dot'></div>
   </div>
 </div>
-
 <div class='right'>
   <div class='card'>
     <div class='avatar'>
@@ -175,7 +163,6 @@ namespace SistemaAutomatizacionNomina
     <h2 class='card-title'>Iniciar Sesión</h2>
     <p class='card-sub'>Sistema de Automatización de Nómina</p>
     <div class='error-msg' id='errorMsg'></div>
-
     <div class='field'>
       <label>Usuario</label>
       <div class='field-wrap'>
@@ -187,7 +174,6 @@ namespace SistemaAutomatizacionNomina
         <input type='text' id='txtUsuario' placeholder='Ingresa tu usuario' autocomplete='off'/>
       </div>
     </div>
-
     <div class='field'>
       <label>Contraseña</label>
       <div class='field-wrap'>
@@ -204,12 +190,10 @@ namespace SistemaAutomatizacionNomina
         </button>
       </div>
     </div>
-
     <button class='btn-login' id='btnIngresar'>Ingresar</button>
     <a class='forgot' id='lnkOlvide'>¿Olvidaste tu contraseña?</a>
   </div>
 </div>
-
 <script>
   const u   = document.getElementById('txtUsuario');
   const p   = document.getElementById('txtContrasena');
@@ -249,6 +233,7 @@ namespace SistemaAutomatizacionNomina
             webView21.Focus();
         }
 
+        // ── Recibir mensajes desde JavaScript ─────────────────────────────
         private void CoreWebView2_WebMessageReceived(object sender,
             CoreWebView2WebMessageReceivedEventArgs e)
         {
@@ -272,20 +257,36 @@ namespace SistemaAutomatizacionNomina
             }
         }
 
+        // ── Conexión con la BLL ───────────────────────────────────────────
         private void ProcesarLogin(string usuario, string contrasena)
         {
-            // TODO (SNA-12): Conectar BLL
-            // bool ok = UsuarioBLL.Autenticar(usuario, contrasena);
-            bool ok = false;
-
-            if (!ok)
+            try
             {
-                webView21.CoreWebView2.ExecuteScriptAsync("loginFailed('Usuario o contraseña incorrectos.');");
-                return;
+                B_Usuarios bll = new B_Usuarios();
+                E_Usuarios resultado = bll.Login(usuario, contrasena);
+
+                if (resultado == null)
+                {
+                    // Credenciales incorrectas → mostrar error en la UI
+                    webView21.CoreWebView2.ExecuteScriptAsync(
+                        "loginFailed('Usuario o contraseña incorrectos.');");
+                    return;
+                }
+
+                frmMaestros maestros = new frmMaestros();
+                maestros.Show();
+                this.Hide();  
+
+
             }
-            // new frmPrincipal().Show(); this.Hide();
+            catch (Exception ex)
+            {
+                webView21.CoreWebView2.ExecuteScriptAsync(
+                    $"loginFailed('Error de conexión: {ex.Message.Replace("'", "")}');");
+            }
         }
 
+        // ── Helper: extrae valor de un JSON simple ────────────────────────
         private static string ExtractJson(string json, string key)
         {
             string search = $"\"{key}\":\"";
@@ -296,9 +297,12 @@ namespace SistemaAutomatizacionNomina
             return end < 0 ? "" : json.Substring(start, end - start);
         }
 
-        // Eventos vacíos requeridos por el designer
+        // ── Eventos vacíos requeridos por el Designer ─────────────────────
         private void panel1_Paint(object sender, PaintEventArgs e) { }
         private void label1_Click(object sender, EventArgs e) { }
         private void webView21_Click(object sender, EventArgs e) { }
     }
 }
+
+
+
