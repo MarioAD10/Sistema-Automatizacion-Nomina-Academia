@@ -16,3 +16,31 @@ C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatiza
 C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatizacionNomina\SistemaAutomatizacionNomina\obj\Debug\SistemaA.58B39D49.Up2Date
 C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatizacionNomina\SistemaAutomatizacionNomina\obj\Debug\SistemaAutomatizacionNomina.exe
 C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatizacionNomina\SistemaAutomatizacionNomina\obj\Debug\SistemaAutomatizacionNomina.pdb
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina\bin\Debug\SistemaAutomatizacionNomina.exe.config
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina\bin\Debug\SistemaAutomatizacionNomina.exe
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina\bin\Debug\SistemaAutomatizacionNomina.pdb
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina\bin\Debug\SistemaAutomatizacionNomina.BLL.dll
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina\bin\Debug\SistemaAutomatizacionNomina.DAL.dll
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina\bin\Debug\SistemaAutomatizacionNomina.Entities.dll
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina\bin\Debug\SistemaAutomatizacionNomina.BLL.pdb
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina\bin\Debug\SistemaAutomatizacionNomina.DAL.pdb
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina\bin\Debug\SistemaAutomatizacionNomina.Entities.pdb
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina\obj\Debug\SistemaAutomatizacionNomina.UI.csproj.AssemblyReference.cache
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina\obj\Debug\SistemaAutomatizacionNomina.exe.config
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina\obj\Debug\SistemaAutomatizacionNomina.frmLogin.resources
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina\obj\Debug\SistemaAutomatizacionNomina.frmMaestros.resources
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina\obj\Debug\SistemaAutomatizacionNomina.Properties.Resources.resources
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina\obj\Debug\SistemaAutomatizacionNomina.UI.csproj.GenerateResource.cache
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina\obj\Debug\SistemaAutomatizacionNomina.UI.csproj.CoreCompileInputs.cache
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina\obj\Debug\SistemaA.58B39D49.Up2Date
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina\obj\Debug\SistemaAutomatizacionNomina.exe
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina\obj\Debug\SistemaAutomatizacionNomina.pdb
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina\bin\Debug\runtimes\win-x86\native\WebView2Loader.dll
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina\bin\Debug\runtimes\win-x64\native\WebView2Loader.dll
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina\bin\Debug\runtimes\win-arm64\native\WebView2Loader.dll
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina\bin\Debug\Microsoft.Web.WebView2.Core.dll
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina\bin\Debug\Microsoft.Web.WebView2.WinForms.dll
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina\bin\Debug\Microsoft.Web.WebView2.Wpf.dll
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina\bin\Debug\Microsoft.Web.WebView2.Core.xml
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina\bin\Debug\Microsoft.Web.WebView2.WinForms.xml
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina\bin\Debug\Microsoft.Web.WebView2.Wpf.xml

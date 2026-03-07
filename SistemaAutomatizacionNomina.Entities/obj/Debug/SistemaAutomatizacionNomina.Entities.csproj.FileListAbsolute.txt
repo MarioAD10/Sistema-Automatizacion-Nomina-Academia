@@ -4,3 +4,9 @@ C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatiza
 C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatizacionNomina\SistemaAutomatizacionNomina.Entities\obj\Debug\SistemaAutomatizacionNomina.Entities.csproj.CoreCompileInputs.cache
 C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatizacionNomina\SistemaAutomatizacionNomina.Entities\obj\Debug\SistemaAutomatizacionNomina.Entities.dll
 C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatizacionNomina\SistemaAutomatizacionNomina.Entities\obj\Debug\SistemaAutomatizacionNomina.Entities.pdb
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina.Entities\bin\Debug\SistemaAutomatizacionNomina.Entities.dll
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina.Entities\bin\Debug\SistemaAutomatizacionNomina.Entities.pdb
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina.Entities\obj\Debug\SistemaAutomatizacionNomina.Entities.csproj.AssemblyReference.cache
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina.Entities\obj\Debug\SistemaAutomatizacionNomina.Entities.csproj.CoreCompileInputs.cache
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina.Entities\obj\Debug\SistemaAutomatizacionNomina.Entities.dll
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina.Entities\obj\Debug\SistemaAutomatizacionNomina.Entities.pdb
