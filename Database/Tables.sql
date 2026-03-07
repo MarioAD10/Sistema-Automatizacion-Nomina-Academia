@@ -1,16 +1,31 @@
 USE SistemaNominaDB;
 
+-----------------------------------------
+-----------------------------------------
+--TABLA USUARIOS
+-----------------------------------------
+-----------------------------------------
 CREATE TABLE Usuario (
-    IdUsuario INT PRIMARY KEY,
-    Nombre VARCHAR(100),
-    Password VARCHAR(100),
-    Rol VARCHAR(50)
+    IdUsuario INT IDENTITY(1,1) PRIMARY KEY,
+    Nombre VARCHAR(100) NOT NULL,
+    Password VARCHAR(255) NOT NULL,
+    Rol VARCHAR(50) NOT NULL
 );
 
-INSERT INTO Usuario (IdUsuario, Nombre, Password, Rol)
-VALUES (1, 'admin', 'admin123', 'Administrador');
+INSERT INTO Usuario (Nombre, Password, Rol)
+VALUES
+('Mario', '1234', 'Admin'),
+('Tony', '1111', 'Admin');
 
-INSERT INTO Usuario (IdUsuario, Nombre, Password, Rol)
-VALUES (2, 'juan', '123456', 'Usuario');
-
-select * from Usuario
+-----------------------------------------
+-----------------------------------------
+--TABLA MAESTROS 
+-----------------------------------------
+-----------------------------------------
+CREATE TABLE Maestros (
+    IdMaestro INT IDENTITY(1,1) PRIMARY KEY,
+    NombreCompleto VARCHAR(150) NOT NULL,
+    DocumentoIdentidad VARCHAR(20) NOT NULL,
+    Telefono VARCHAR(20) NOT NULL,
+    Ocupacion VARCHAR(100) NOT NULL
+);
