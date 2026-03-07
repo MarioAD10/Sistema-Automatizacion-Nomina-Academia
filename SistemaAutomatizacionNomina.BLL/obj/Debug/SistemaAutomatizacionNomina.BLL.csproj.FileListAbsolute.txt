@@ -9,14 +9,14 @@ C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatiza
 C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatizacionNomina\SistemaAutomatizacionNomina.BLL\obj\Debug\SistemaA.C85D5CEB.Up2Date
 C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatizacionNomina\SistemaAutomatizacionNomina.BLL\obj\Debug\SistemaAutomatizacionNomina.BLL.dll
 C:\Users\Owner\Desktop\ITLA\6TO CUATRIMESTRE\Programación III\SistemaAutomatizacionNomina\SistemaAutomatizacionNomina.BLL\obj\Debug\SistemaAutomatizacionNomina.BLL.pdb
-C:\Users\Tony Peralta\Desktop\p33\SistemaAutomatizacionNomina.BLL\bin\Debug\SistemaAutomatizacionNomina.BLL.dll
-C:\Users\Tony Peralta\Desktop\p33\SistemaAutomatizacionNomina.BLL\bin\Debug\SistemaAutomatizacionNomina.BLL.pdb
-C:\Users\Tony Peralta\Desktop\p33\SistemaAutomatizacionNomina.BLL\bin\Debug\SistemaAutomatizacionNomina.DAL.dll
-C:\Users\Tony Peralta\Desktop\p33\SistemaAutomatizacionNomina.BLL\bin\Debug\SistemaAutomatizacionNomina.Entities.dll
-C:\Users\Tony Peralta\Desktop\p33\SistemaAutomatizacionNomina.BLL\bin\Debug\SistemaAutomatizacionNomina.DAL.pdb
-C:\Users\Tony Peralta\Desktop\p33\SistemaAutomatizacionNomina.BLL\bin\Debug\SistemaAutomatizacionNomina.Entities.pdb
-C:\Users\Tony Peralta\Desktop\p33\SistemaAutomatizacionNomina.BLL\obj\Debug\SistemaAutomatizacionNomina.BLL.csproj.AssemblyReference.cache
-C:\Users\Tony Peralta\Desktop\p33\SistemaAutomatizacionNomina.BLL\obj\Debug\SistemaAutomatizacionNomina.BLL.csproj.CoreCompileInputs.cache
-C:\Users\Tony Peralta\Desktop\p33\SistemaAutomatizacionNomina.BLL\obj\Debug\SistemaA.C85D5CEB.Up2Date
-C:\Users\Tony Peralta\Desktop\p33\SistemaAutomatizacionNomina.BLL\obj\Debug\SistemaAutomatizacionNomina.BLL.dll
-C:\Users\Tony Peralta\Desktop\p33\SistemaAutomatizacionNomina.BLL\obj\Debug\SistemaAutomatizacionNomina.BLL.pdb
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina.BLL\bin\Debug\SistemaAutomatizacionNomina.BLL.dll
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina.BLL\bin\Debug\SistemaAutomatizacionNomina.BLL.pdb
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina.BLL\bin\Debug\SistemaAutomatizacionNomina.DAL.dll
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina.BLL\bin\Debug\SistemaAutomatizacionNomina.Entities.dll
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina.BLL\bin\Debug\SistemaAutomatizacionNomina.DAL.pdb
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina.BLL\bin\Debug\SistemaAutomatizacionNomina.Entities.pdb
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina.BLL\obj\Debug\SistemaAutomatizacionNomina.BLL.csproj.AssemblyReference.cache
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina.BLL\obj\Debug\SistemaAutomatizacionNomina.BLL.csproj.CoreCompileInputs.cache
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina.BLL\obj\Debug\SistemaA.C85D5CEB.Up2Date
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina.BLL\obj\Debug\SistemaAutomatizacionNomina.BLL.dll
+C:\Users\domif\OneDrive\Escritorio\proyecto P3\Sistema-Automatizacion-Nomina-Academia\SistemaAutomatizacionNomina.BLL\obj\Debug\SistemaAutomatizacionNomina.BLL.pdb
