@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Login\B_Usuarios.cs" />
     <Compile Include="Services\Maestros\B_Maestros.cs" />
   </ItemGroup>
   <ItemGroup>
