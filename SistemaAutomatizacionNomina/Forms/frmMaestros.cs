@@ -1,358 +1,278 @@
-﻿using System;
+﻿using Microsoft.Web.WebView2.Core;
+using SistemaAutomatizacionNomina.BLL.Services.Maestros;
+using SistemaAutomatizacionNomina.Entities.Entities.Maestros;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Web.WebView2.Core;
-
 
 namespace SistemaAutomatizacionNomina
 {
     public partial class frmMaestros : Form
     {
+        B_Maestros objBLL = new B_Maestros();
+        private readonly SemaphoreSlim _semaforo = new SemaphoreSlim(1, 1);
+
         public frmMaestros()
         {
             InitializeComponent();
             this.Load += new EventHandler(frmMaestros_Load);
+            this.Size = new System.Drawing.Size(1200, 700);
+            this.MinimumSize = new System.Drawing.Size(1200, 700);
+            this.MaximumSize = new System.Drawing.Size(1200, 700);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
         }
 
         private async void frmMaestros_Load(object sender, EventArgs e)
         {
             await webView21.EnsureCoreWebView2Async();
 
-            // ─── Suscribir evento para recibir mensajes desde HTML ───
+            webView21.CoreWebView2.Settings.IsWebMessageEnabled = true;
+
+            // Desuscribir primero para evitar doble registro si Load se ejecuta más de una vez
+            webView21.CoreWebView2.WebMessageReceived -= CoreWebView2_WebMessageReceived;
             webView21.CoreWebView2.WebMessageReceived += CoreWebView2_WebMessageReceived;
+
+            EventHandler<CoreWebView2NavigationCompletedEventArgs> handler = null;
+            handler = async (s, args) =>
+            {
+                webView21.NavigationCompleted -= handler;
+                await Task.Delay(300);
+                await CargarMaestrosEnTabla();
+            };
+            webView21.NavigationCompleted += handler;
 
             webView21.NavigateToString(@"
 <!DOCTYPE html>
 <html lang=""es"">
 <head>
-<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+<meta charset=""utf-8"">
 <meta name=""viewport"" content=""width=device-width, initial-scale=1.0"">
-<link rel='stylesheet' href='https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css'>
-<link href=""https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap"" rel=""stylesheet"">
-<script src='https://code.jquery.com/jquery-3.7.0.min.js'></script>
-<script src='https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js'></script>
-
 <style>
   :root {
-    --green-deep:    #1a3d2b;
-    --green-mid:     #2c6e49;
-    --green-light:   #4a9068;
-    --green-muted:   #d4e6dc;
-    --beige-base:    #f5f0e8;
-    --beige-warm:    #ede6d6;
-    --beige-dark:    #c8ba9e;
-    --cream:         #faf8f3;
-    --text-dark:     #1a1a16;
-    --text-mid:      #4a4a3a;
-    --text-light:    #8a8a72;
-    --white:         #ffffff;
-    --shadow-soft:   0 4px 24px rgba(26, 61, 43, 0.08);
-    --shadow-card:   0 8px 40px rgba(26, 61, 43, 0.12);
-    --radius-sm:     8px;
-    --radius-md:     14px;
-    --radius-lg:     22px;
+    --green-deep:  #1a3d2b;
+    --green-mid:   #2c6e49;
+    --green-light: #4a9068;
+    --green-muted: #d4e6dc;
+    --beige-base:  #f5f0e8;
+    --beige-warm:  #ede6d6;
+    --beige-dark:  #c8ba9e;
+    --cream:       #faf8f3;
+    --text-dark:   #1a1a16;
+    --text-mid:    #4a4a3a;
+    --text-light:  #8a8a72;
+    --white:       #ffffff;
+    --radius-sm:   8px;
+    --radius-md:   14px;
+    --radius-lg:   22px;
+    --shadow:      0 8px 40px rgba(26,61,43,0.12);
   }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  * { margin:0; padding:0; box-sizing:border-box; }
 
-  body {
-    background-color: var(--beige-base);
-    font-family: 'DM Sans', sans-serif;
-    color: var(--text-dark);
-    min-height: 100vh;
-    position: relative;
+  html, body {
+    width: 100%;
+    height: 100%;
     overflow-x: hidden;
   }
 
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 80% 60% at 10% 0%, rgba(44,110,73,0.07) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 40% at 90% 100%, rgba(44,110,73,0.05) 0%, transparent 50%);
-    pointer-events: none;
-    z-index: 0;
+  body {
+    background: var(--beige-base);
+    font-family: Arial, sans-serif;
+    color: var(--text-dark);
   }
 
   header {
     background: var(--green-deep);
     color: var(--beige-base);
-    padding: 0 48px;
-    height: 68px;
+    padding: 0 40px;
+    height: 64px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.18);
+    box-shadow: 0 2px 16px rgba(0,0,0,0.2);
   }
-
-  .header-brand { display: flex; align-items: center; gap: 12px; }
+  .header-left { display:flex; align-items:center; gap:12px; }
   .header-icon {
-    width: 34px; height: 34px;
-    background: var(--green-light);
-    border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 17px;
+    width:34px; height:34px; background:var(--green-light);
+    border-radius:8px; display:flex; align-items:center;
+    justify-content:center; font-size:18px;
   }
-  .header-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 18px; font-weight: 600;
-    letter-spacing: 0.02em; color: var(--beige-base);
-  }
-  .header-subtitle {
-    font-size: 11px; color: var(--green-muted);
-    letter-spacing: 0.08em; text-transform: uppercase; font-weight: 300;
-  }
+  .header-title { font-size:17px; font-weight:700; }
+  .header-sub { font-size:11px; color:var(--green-muted); text-transform:uppercase; letter-spacing:.08em; }
   .header-badge {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 20px; padding: 5px 14px;
-    font-size: 12px; color: var(--beige-dark); letter-spacing: 0.04em;
+    background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.15);
+    border-radius:20px; padding:5px 14px; font-size:12px; color:var(--beige-dark);
   }
 
   main {
-    position: relative; z-index: 1;
-    max-width: 1180px; margin: 0 auto;
-    padding: 48px 32px 64px;
+    padding: 32px 28px 40px;
     display: grid;
-    grid-template-columns: 320px 1fr;
-    gap: 40px; align-items: start;
+    grid-template-columns: 300px 1fr;
+    gap: 32px;
+    align-items: start;
   }
 
+  /* ── Formulario ── */
   .form-card {
-    background: var(--white);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-card);
-    overflow: hidden;
-    position: sticky; top: 88px;
-    animation: slideInLeft 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+    background:var(--white); border-radius:var(--radius-lg);
+    box-shadow:var(--shadow); overflow:hidden;
   }
+  .form-head { background:var(--green-deep); padding:24px 24px 20px; }
+  .form-eyebrow {
+    font-size:10px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--green-muted); margin-bottom:4px;
+  }
+  .form-head h2 { font-size:20px; font-weight:700; color:var(--beige-base); }
+  .form-body { padding:24px; display:flex; flex-direction:column; gap:14px; }
 
-  @keyframes slideInLeft {
-    from { opacity: 0; transform: translateX(-24px); }
-    to   { opacity: 1; transform: translateX(0); }
+  .field label {
+    display:block; font-size:11px; font-weight:600;
+    letter-spacing:.08em; text-transform:uppercase;
+    color:var(--text-light); margin-bottom:5px;
   }
-
-  .form-header {
-    background: var(--green-deep);
-    padding: 28px 28px 24px;
-    position: relative; overflow: hidden;
+  .field input {
+    width:100%; padding:10px 13px;
+    border:1.5px solid var(--beige-warm);
+    border-radius:var(--radius-sm);
+    font-size:14px; color:var(--text-dark);
+    background:var(--cream); outline:none;
+    transition:border-color .2s, box-shadow .2s;
   }
-  .form-header::after {
-    content: ''; position: absolute;
-    bottom: -20px; right: -20px;
-    width: 100px; height: 100px;
-    background: rgba(255,255,255,0.04); border-radius: 50%;
+  .field input:focus {
+    border-color:var(--green-mid);
+    box-shadow:0 0 0 3px rgba(44,110,73,.1);
+    background:var(--white);
   }
-  .form-header-eyebrow {
-    font-size: 10px; letter-spacing: 0.14em;
-    text-transform: uppercase; color: var(--green-muted);
-    margin-bottom: 6px; font-weight: 500;
-  }
-  .form-header h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px; font-weight: 600;
-    color: var(--beige-base); line-height: 1.2;
-  }
-
-  .form-body { padding: 28px; display: flex; flex-direction: column; gap: 16px; }
-
-  .field-group { display: flex; flex-direction: column; gap: 6px; }
-  .field-group label {
-    font-size: 11px; font-weight: 500;
-    letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-light);
-  }
-  .field-group input {
-    width: 100%; padding: 11px 14px;
-    border: 1.5px solid var(--beige-warm);
-    border-radius: var(--radius-sm);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14px; color: var(--text-dark);
-    background: var(--cream); outline: none;
-    transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
-  }
-  .field-group input:focus {
-    border-color: var(--green-mid);
-    background: var(--white);
-    box-shadow: 0 0 0 3px rgba(44,110,73,0.1);
-  }
-  .field-group input::placeholder { color: var(--beige-dark); font-weight: 300; }
+  .field input::placeholder { color:var(--beige-dark); }
+  .field input.input-error { border-color:#b94040; box-shadow:0 0 0 3px rgba(185,64,64,.1); }
 
   .btn-guardar {
-    width: 100%; padding: 13px; border: none;
-    border-radius: var(--radius-sm);
-    background: var(--green-mid); color: var(--beige-base);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14px; font-weight: 500; letter-spacing: 0.04em;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-    margin-top: 4px;
-    display: flex; align-items: center; justify-content: center; gap: 8px;
+    width:100%; padding:12px; border:none;
+    border-radius:var(--radius-sm);
+    background:var(--green-mid); color:var(--white);
+    font-size:14px; font-weight:600; cursor:pointer;
+    transition:background .2s, transform .15s;
+    display:flex; align-items:center; justify-content:center; gap:8px;
   }
-  .btn-guardar:hover {
-    background: var(--green-deep);
-    box-shadow: 0 4px 16px rgba(44,110,73,0.3);
-    transform: translateY(-1px);
-  }
-  .btn-guardar:active { transform: translateY(0); box-shadow: none; }
-  .btn-guardar svg { width: 15px; height: 15px; }
+  .btn-guardar:hover { background:var(--green-deep); transform:translateY(-1px); }
+  .btn-guardar:active { transform:translateY(0); }
+  .btn-guardar:disabled { background:var(--beige-dark); cursor:not-allowed; transform:none; }
 
-  .table-section {
-    animation: slideInRight 0.5s 0.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  /* ── Tabla ── */
+  .section-top {
+    display:flex; align-items:flex-end;
+    justify-content:space-between; margin-bottom:20px;
   }
-  @keyframes slideInRight {
-    from { opacity: 0; transform: translateX(24px); }
-    to   { opacity: 1; transform: translateX(0); }
-  }
-
-  .section-header {
-    display: flex; align-items: flex-end;
-    justify-content: space-between; margin-bottom: 24px;
-  }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px; font-weight: 700;
-    color: var(--green-deep); line-height: 1.1;
-  }
-  .section-title span {
-    display: block;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px; font-weight: 400;
-    color: var(--text-light); letter-spacing: 0.03em; margin-top: 4px;
-  }
+  .section-title { font-size:26px; font-weight:700; color:var(--green-deep); }
+  .section-sub { font-size:13px; color:var(--text-light); margin-top:3px; }
   .count-pill {
-    background: var(--green-deep); color: var(--beige-base);
-    font-size: 12px; font-weight: 500;
-    padding: 4px 12px; border-radius: 20px; letter-spacing: 0.04em;
+    background:var(--green-deep); color:var(--white);
+    font-size:12px; font-weight:500;
+    padding:4px 12px; border-radius:20px;
   }
 
-  .dataTables_wrapper {
-    background: var(--white); border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-card); overflow: hidden; padding: 0;
+  .table-card {
+    background:var(--white); border-radius:var(--radius-lg);
+    box-shadow:var(--shadow); overflow:hidden;
   }
-  .dt-controls-bar {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 20px 24px 16px; border-bottom: 1px solid var(--beige-warm);
+  .table-controls {
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 20px; border-bottom:1px solid var(--beige-warm);
   }
-  .dataTables_length { padding: 0 !important; }
-  .dataTables_filter { padding: 0 !important; }
-  .dataTables_wrapper .dataTables_length label,
-  .dataTables_wrapper .dataTables_filter label {
-    font-size: 13px; color: var(--text-mid);
-    font-family: 'DM Sans', sans-serif;
-    display: flex; align-items: center; gap: 8px;
+  .search-box {
+    padding:7px 12px; border:1.5px solid var(--beige-warm);
+    border-radius:var(--radius-sm); font-size:13px;
+    color:var(--text-dark); background:var(--cream); outline:none; width:220px;
   }
-  .dataTables_wrapper .dataTables_length select,
-  .dataTables_wrapper .dataTables_filter input {
-    border: 1.5px solid var(--beige-warm);
-    border-radius: var(--radius-sm);
-    padding: 6px 10px; font-size: 13px;
-    font-family: 'DM Sans', sans-serif;
-    color: var(--text-dark); background: var(--cream); outline: none;
+  .search-box:focus { border-color:var(--green-mid); background:var(--white); }
+
+  table { width:100%; border-collapse:collapse; }
+  thead tr { background:var(--beige-base); }
+  thead th {
+    font-size:11px; font-weight:600; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--text-light);
+    padding:13px 18px; border-bottom:2px solid var(--beige-warm);
+    text-align:left; white-space:nowrap;
   }
-  .dataTables_wrapper .dataTables_filter input:focus {
-    border-color: var(--green-mid);
-    box-shadow: 0 0 0 3px rgba(44,110,73,0.1);
-    background: var(--white);
+  tbody td {
+    padding:13px 18px; font-size:14px; color:var(--text-mid);
+    border-bottom:1px solid var(--beige-warm); vertical-align:middle;
+  }
+  tbody tr:last-child td { border-bottom:none; }
+  tbody tr:hover td { background:var(--cream); }
+  thead th:last-child, tbody td:last-child { text-align:center; width:52px; padding:13px 10px; }
+
+  .avatar {
+    width:28px; height:28px; border-radius:50%;
+    background:var(--green-muted); color:var(--green-deep);
+    font-size:11px; font-weight:700;
+    display:inline-flex; align-items:center; justify-content:center;
+    margin-right:8px; vertical-align:middle; flex-shrink:0;
+  }
+  .badge {
+    display:inline-block; background:var(--beige-warm); color:var(--green-deep);
+    font-size:11.5px; font-weight:500; padding:3px 10px; border-radius:20px;
   }
 
-  table#tablaMaestros { width: 100% !important; border-collapse: collapse; }
-  table#tablaMaestros thead tr { background: var(--beige-base); }
-  table#tablaMaestros thead th {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 11px; font-weight: 500;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--text-light); padding: 14px 20px;
-    border-bottom: 2px solid var(--beige-warm);
-    text-align: left; white-space: nowrap;
+  .btn-x {
+    width:26px; height:26px; border-radius:50%;
+    border:1.5px solid #e0c8c8; background:#fff5f5;
+    color:#b94040; font-size:13px; font-weight:700;
+    cursor:pointer; display:inline-flex; align-items:center; justify-content:center;
+    transition:background .15s, transform .15s;
   }
-  table#tablaMaestros tbody td {
-    padding: 14px 20px; font-size: 14px;
-    color: var(--text-mid); border-bottom: 1px solid var(--beige-warm);
-    text-align: left; vertical-align: middle;
-  }
-  table#tablaMaestros tbody tr:last-child td { border-bottom: none; }
-  table#tablaMaestros tbody tr:hover td { background: var(--cream); }
-  table#tablaMaestros tbody td:first-child {
-    font-weight: 500; color: var(--text-dark);
-    display: flex; align-items: center; gap: 10px;
-  }
+  .btn-x:hover { background:#b94040; border-color:#b94040; color:#fff; transform:scale(1.1); }
 
-  .avatar-dot {
-    width: 30px; height: 30px; border-radius: 50%;
-    background: var(--green-muted); color: var(--green-deep);
-    font-size: 11px; font-weight: 600;
-    display: inline-flex; align-items: center; justify-content: center;
-    flex-shrink: 0; letter-spacing: 0.02em;
+  td.edit-cell { padding:4px 8px !important; }
+  td.edit-cell input {
+    width:100%; padding:6px 10px;
+    border:1.5px solid var(--green-mid); border-radius:var(--radius-sm);
+    font-size:14px; color:var(--text-dark); background:var(--white); outline:none;
+    box-shadow:0 0 0 3px rgba(44,110,73,.1);
   }
-  .badge-ocupacion {
-    display: inline-block;
-    background: var(--beige-warm); color: var(--green-deep);
-    font-size: 11.5px; font-weight: 500;
-    padding: 3px 10px; border-radius: 20px; letter-spacing: 0.02em;
-  }
+  tr.editing td { background:#f0f8f3 !important; }
 
-  .dataTables_info {
-    font-size: 12px; color: var(--text-light);
-    padding: 16px 24px !important; font-family: 'DM Sans', sans-serif;
+  .no-data { text-align:center; padding:40px; color:var(--text-light); font-size:14px; }
+
+  .table-footer {
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 20px; border-top:1px solid var(--beige-warm);
   }
-  .dataTables_paginate { padding: 12px 24px !important; }
-  .dataTables_paginate .paginate_button {
-    border-radius: var(--radius-sm) !important;
-    font-size: 13px !important; font-family: 'DM Sans', sans-serif !important;
-    padding: 5px 11px !important; margin: 0 2px !important;
-    color: var(--text-mid) !important; background: transparent !important;
-    border: 1px solid transparent !important;
+  .page-info { font-size:12px; color:var(--text-light); }
+  .pagination { display:flex; gap:4px; }
+  .page-btn {
+    padding:5px 10px; border:1px solid transparent;
+    border-radius:var(--radius-sm); font-size:13px;
+    cursor:pointer; background:transparent; color:var(--text-mid);
+    transition:background .15s;
   }
-  .dataTables_paginate .paginate_button:hover {
-    background: var(--beige-warm) !important;
-    border-color: var(--beige-dark) !important; color: var(--text-dark) !important;
-  }
-  .dataTables_paginate .paginate_button.current,
-  .dataTables_paginate .paginate_button.current:hover {
-    background: var(--green-deep) !important;
-    color: var(--beige-base) !important; border-color: var(--green-deep) !important;
-  }
-  .dataTables_paginate .paginate_button.disabled,
-  .dataTables_paginate .paginate_button.disabled:hover {
-    color: var(--beige-dark) !important; cursor: default;
-  }
-  .dt-bottom-bar {
-    display: flex; align-items: center;
-    justify-content: space-between; border-top: 1px solid var(--beige-warm);
-  }
+  .page-btn:hover { background:var(--beige-warm); border-color:var(--beige-dark); }
+  .page-btn.active { background:var(--green-deep); color:#fff; border-color:var(--green-deep); }
+  .page-btn:disabled { color:var(--beige-dark); cursor:default; }
 
   .toast {
-    position: fixed; bottom: 32px; right: 32px;
-    background: var(--green-deep); color: var(--beige-base);
-    padding: 14px 22px; border-radius: var(--radius-md);
-    font-size: 14px; font-family: 'DM Sans', sans-serif;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-    display: flex; align-items: center; gap: 10px;
-    z-index: 999; opacity: 0; transform: translateY(12px);
-    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-    pointer-events: none;
+    position:fixed; bottom:28px; right:28px;
+    background:var(--green-deep); color:#fff;
+    padding:13px 20px; border-radius:var(--radius-md);
+    font-size:14px; display:flex; align-items:center; gap:8px;
+    box-shadow:0 8px 24px rgba(0,0,0,.2);
+    z-index:999; opacity:0; transform:translateY(10px);
+    transition:all .3s ease; pointer-events:none;
   }
-  .toast.show { opacity: 1; transform: translateY(0); }
+  .toast.show { opacity:1; transform:translateY(0); }
 </style>
 </head>
 <body>
 
 <header>
-  <div class=""header-brand"">
-    <div class=""header-icon"">𝄞</div>
+  <div class=""header-left"">
+    <div class=""header-icon"">&#119070;</div>
     <div>
       <div class=""header-title"">Crecendo Studio</div>
-      <div class=""header-subtitle"">Panel de Administración</div>
+      <div class=""header-sub"">Panel de Administración</div>
     </div>
   </div>
   <div class=""header-badge"">Gestión de Maestros</div>
@@ -360,230 +280,496 @@ namespace SistemaAutomatizacionNomina
 
 <main>
   <div class=""form-card"">
-    <div class=""form-header"">
-      <div class=""form-header-eyebrow"">Nuevo registro</div>
+    <div class=""form-head"">
+      <div class=""form-eyebrow"">Nuevo registro</div>
       <h2>Agregar Maestro</h2>
     </div>
     <div class=""form-body"">
-      <div class=""field-group"">
+      <div class=""field"">
         <label>Nombre completo</label>
-        <input id='nombre' placeholder='Ej. Juan Pérez García'>
+        <input id=""nombre"" placeholder=""Ej. Juan Pérez"">
       </div>
-      <div class=""field-group"">
-        <label>Documento</label>
-        <input id='documento' placeholder='Número de documento'>
+      <div class=""field"">
+        <label>Documento <span style=""font-size:10px;color:var(--text-light);font-weight:400;text-transform:none""></span></label>
+        <input id=""documento"" placeholder=""000-0000000-0"" maxlength=""13"">
       </div>
-      <div class=""field-group"">
-        <label>Teléfono</label>
-        <input id='telefono' placeholder='555-0000'>
+      <div class=""field"">
+        <label>Teléfono <span style=""font-size:10px;color:var(--text-light);font-weight:400;text-transform:none""></span></label>
+        <input id=""telefono"" placeholder=""000-000-0000"" maxlength=""12"">
       </div>
-      <div class=""field-group"">
-        <label>Ocupación </label>
-        <input id='ocupacion' placeholder='Ej. Violin'>
+      <div class=""field"">
+        <label>Ocupación</label>
+        <input id=""ocupacion"" placeholder=""Ej. Violin"">
       </div>
-      <button class=""btn-guardar"" id='btnGuardar'>
-        <svg viewBox=""0 0 24 24"" fill=""none"" stroke=""currentColor"" stroke-width=""2.5"" stroke-linecap=""round"" stroke-linejoin=""round"">
-          <path d=""M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z""/>
-          <polyline points=""17 21 17 13 7 13 7 21""/>
-          <polyline points=""7 3 7 8 15 8""/>
-        </svg>
-        Guardar Maestro
+      <button class=""btn-guardar"" id=""btnGuardar"">
+        &#128190; Guardar Maestro
       </button>
     </div>
   </div>
 
   <div class=""table-section"">
-    <div class=""section-header"">
-      <div class=""section-title"">
-        Directorio de Maestros
-        <span>Registro académico actualizado</span>
+    <div class=""section-top"">
+      <div>
+        <div class=""section-title"">Directorio de Maestros</div>
+        <div class=""section-sub"">gestion</div>
       </div>
       <div class=""count-pill"" id=""countPill"">0 maestros</div>
     </div>
 
-    <div class=""dataTables_wrapper"">
-      <div class=""dt-controls-bar"" id=""dtControlsTop""></div>
-      <table id='tablaMaestros'>
+    <div class=""table-card"">
+      <div class=""table-controls"">
+        <input class=""search-box"" id=""searchBox"" placeholder=""Buscar maestro..."">
+        <span class=""page-info"" id=""pageInfo""></span>
+      </div>
+      <table id=""tablaMaestros"">
         <thead>
           <tr>
             <th>Nombre</th>
             <th>Documento</th>
             <th>Teléfono</th>
             <th>Ocupación</th>
+            <th></th>
           </tr>
         </thead>
-        <tbody></tbody>
+        <tbody id=""tbodyMaestros""></tbody>
       </table>
-      <div class=""dt-bottom-bar"">
-        <div id=""dtInfo""></div>
-        <div id=""dtPaginate""></div>
+      <div id=""noData"" class=""no-data"" style=""display:none"">No se encontraron maestros</div>
+      <div class=""table-footer"">
+        <div class=""page-info"" id=""infoText""></div>
+        <div class=""pagination"" id=""pagination""></div>
       </div>
     </div>
   </div>
 </main>
 
-<div class=""toast"" id=""toast"">
-  <span>✓</span> <span id=""toastMsg"">Maestro guardado correctamente</span>
-</div>
+<div class=""toast"" id=""toast""><span>&#10003;</span><span id=""toastMsg""></span></div>
 
 <script>
-  // ─── Helpers ──────────────────────────────────────────────
-  function getInitials(name) {
-    const parts = name.trim().split(' ');
-    return (parts[0][0] + (parts[1] ? parts[1][0] : '')).toUpperCase();
-  }
-
-  function decorateTable() {
-    $('#tablaMaestros tbody tr').each(function() {
-      const tdNombre = $(this).find('td:first-child');
-      const name = tdNombre.text().trim();
-      if (!tdNombre.find('.avatar-dot').length) {
-        tdNombre.html(`<span class=""avatar-dot"">${getInitials(name)}</span>${name}`);
-      }
-      const tdOcupacion = $(this).find('td:last-child');
-      const text = tdOcupacion.text().trim();
-      if (!tdOcupacion.find('.badge-ocupacion').length) {
-        tdOcupacion.html(`<span class=""badge-ocupacion"">${text}</span>`);
-      }
-    });
-  }
-
-  function showToast(msg, esError = false) {
-    const t = document.getElementById('toast');
-    t.style.background = esError ? '#8b2c2c' : 'var(--green-deep)';
-    document.getElementById('toastMsg').textContent = msg;
-    t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 3000);
-  }
-
-  // ─── DataTable ────────────────────────────────────────────
-  $(document).ready(function() {
-    window.tabla = $('#tablaMaestros').DataTable({
-      pageLength: 10,
-      lengthMenu: [[5, 10, 25, 50, -1], [5, 10, 25, 50, ""Todos""]],
-      dom: '<""dt-controls-bar""lf>t<""dt-bottom-bar""ip>',
-      language: {
-        search: """",
-        searchPlaceholder: ""Buscar maestro…"",
-        lengthMenu: ""Mostrar _MENU_"",
-        info: ""Mostrando _START_–_END_ de _TOTAL_"",
-        infoEmpty: ""Sin registros"",
-        infoFiltered: ""(de _MAX_ total)"",
-        zeroRecords: ""No se encontraron maestros"",
-        paginate: { first: ""«"", previous: ""‹"", next: ""›"", last: ""»"" }
-      },
-      drawCallback: function() {
-        decorateTable();
-        const total = this.api().data().length;
-        document.getElementById('countPill').textContent = total + ' maestro' + (total !== 1 ? 's' : '');
-      }
-    });
-
-    // ─── Guardar temporalmente los valores antes de enviar ──
-    let datosPendientes = {};
-
-    // ============================================================
-    // CONTRATO CON BACKEND
-    // ENVÍO:    'nombre|documento|telefono|ocupacion'  (separado por |)
-    // RESPUESTA esperada desde C#: recibirRespuesta('OK') 
-    //                           o: recibirRespuesta('ERROR')
-    // ============================================================
-    document.getElementById('btnGuardar').addEventListener('click', function() {
-
-      // 1. Recoger valores
-      const nombre    = document.getElementById('nombre').value.trim();
-      const documento = document.getElementById('documento').value.trim();
-      const telefono  = document.getElementById('telefono').value.trim();
-      const ocupacion = document.getElementById('ocupacion').value.trim();
-
-      // 2. Validar campos vacíos
-      if (!nombre || !documento || !telefono || !ocupacion) {
-        showToast('Por favor completa todos los campos', true);
-        return;
-      }
-
-      // 3. Guardar valores para usarlos cuando llegue la respuesta
-      datosPendientes = { nombre, documento, telefono, ocupacion };
-
-      // 4. Enviar a C#  ← AQUÍ TERMINA TU TRABAJO
-      const mensaje = `${nombre}|${documento}|${telefono}|${ocupacion}`;
-      window.chrome.webview.postMessage(mensaje);
-    });
-
-    // ─── Respuesta que viene de C# ────────────────────────────
-    // El backend llama: ExecuteScriptAsync(""recibirRespuesta('OK')"")
-    //               o:  ExecuteScriptAsync(""recibirRespuesta('ERROR')"")
-    window.recibirRespuesta = function(resultado) {
-      if (resultado === 'OK') {
-
-        // Agregar fila a la tabla con los datos guardados
-        window.tabla.row.add([
-          datosPendientes.nombre,
-          datosPendientes.documento,
-          datosPendientes.telefono,
-          datosPendientes.ocupacion
-        ]).draw(false);
-
-        decorateTable();
-
-        // Limpiar inputs
-        ['nombre', 'documento', 'telefono', 'ocupacion'].forEach(id => {
-          document.getElementById(id).value = '';
-        });
-
-        showToast(`""${datosPendientes.nombre}"" agregado correctamente`);
-        datosPendientes = {};
-
-      } else {
-        showToast('Error al guardar. Intenta de nuevo.', true);
-      }
-    };
+// ══════════════════════════════════════════════
+// FORMATO AUTOMÁTICO - DOCUMENTO (000-0000000-0)
+// ══════════════════════════════════════════════
+function formatDocumento(input) {
+  input.addEventListener('keydown', function(ev) {
+    if (ev.ctrlKey || ev.metaKey) return;
+    var allow = ['Backspace','Delete','ArrowLeft','ArrowRight','Tab','Home','End'];
+    if (allow.indexOf(ev.key) >= 0) return;
+    if (!/^\d$/.test(ev.key)) { ev.preventDefault(); return; }
   });
+
+  input.addEventListener('input', function() {
+    var pos = this.selectionStart;
+    var digitos = this.value.replace(/\D/g, '').slice(0, 11);
+    var formateado = '';
+
+    for (var i = 0; i < digitos.length; i++) {
+      if (i === 3 || i === 10) formateado += '-';
+      formateado += digitos[i];
+    }
+
+    this.value = formateado;
+
+    var nuevaPos = pos;
+    if (pos === 4) nuevaPos = 5;
+    if (pos === 12) nuevaPos = 13;
+    try { this.setSelectionRange(nuevaPos, nuevaPos); } catch(e) {}
+  });
+}
+
+// ══════════════════════════════════════════════
+// FORMATO AUTOMÁTICO - TELÉFONO (000-000-0000)
+// ══════════════════════════════════════════════
+function formatTelefono(input) {
+  input.addEventListener('keydown', function(ev) {
+    if (ev.ctrlKey || ev.metaKey) return;
+    var allow = ['Backspace','Delete','ArrowLeft','ArrowRight','Tab','Home','End'];
+    if (allow.indexOf(ev.key) >= 0) return;
+    if (!/^\d$/.test(ev.key)) { ev.preventDefault(); return; }
+  });
+
+  input.addEventListener('input', function() {
+    var pos = this.selectionStart;
+    var digitos = this.value.replace(/\D/g, '').slice(0, 10);
+    var formateado = '';
+
+    for (var i = 0; i < digitos.length; i++) {
+      if (i === 3 || i === 6) formateado += '-';
+      formateado += digitos[i];
+    }
+
+    this.value = formateado;
+
+    var nuevaPos = pos;
+    if (pos === 4) nuevaPos = 5;
+    if (pos === 8) nuevaPos = 9;
+    try { this.setSelectionRange(nuevaPos, nuevaPos); } catch(e) {}
+  });
+}
+
+formatDocumento(document.getElementById('documento'));
+formatTelefono(document.getElementById('telefono'));
+
+// ══════════════════════════════════════════════
+// ESTADO GLOBAL
+// ══════════════════════════════════════════════
+var todosLosMaestros = [];
+var maestrosFiltrados = [];
+var paginaActual = 1;
+var porPagina = 10;
+var datosPendientes = {};
+var accionPendiente = '';
+var filaEnEdicion = null;
+
+// Flag único de control: bloquea tanto el botón como el envío de mensajes
+var operacionEnCurso = false;
+
+function initials(name) {
+  var p = name.trim().split(' ');
+  return (p[0][0] + (p[1] ? p[1][0] : '')).toUpperCase();
+}
+
+function showToast(msg, error) {
+  var t = document.getElementById('toast');
+  t.style.background = error ? '#8b2c2c' : '#1a3d2b';
+  document.getElementById('toastMsg').textContent = msg;
+  t.classList.add('show');
+  setTimeout(function() { t.classList.remove('show'); }, 3000);
+}
+
+function escHtml(str) {
+  return String(str)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;').replace(/\x22/g,'&quot;');
+}
+
+// ══════════════════════════════════════════════
+// RENDER TABLA
+// ══════════════════════════════════════════════
+function renderTabla() {
+  var tbody = document.getElementById('tbodyMaestros');
+  var noData = document.getElementById('noData');
+  var total = maestrosFiltrados.length;
+  var inicio = (paginaActual - 1) * porPagina;
+  var fin = Math.min(inicio + porPagina, total);
+  var pagina = maestrosFiltrados.slice(inicio, fin);
+
+  tbody.innerHTML = '';
+
+  if (total === 0) {
+    noData.style.display = 'block';
+  } else {
+    noData.style.display = 'none';
+    pagina.forEach(function(m) {
+      var tr = document.createElement('tr');
+      tr.setAttribute('data-id', m.id);
+      tr.innerHTML =
+        '<td><span class=""avatar"">' + initials(m.nombre) + '</span>' + escHtml(m.nombre) + '</td>' +
+        '<td>' + escHtml(m.documento) + '</td>' +
+        '<td>' + escHtml(m.telefono) + '</td>' +
+        '<td><span class=""badge"">' + escHtml(m.ocupacion) + '</span></td>' +
+        '<td><button class=""btn-x"" onclick=""eliminar(' + m.id + ')"">&#10005;</button></td>';
+      tr.addEventListener('dblclick', function() { iniciarEdicion(tr, m); });
+      tbody.appendChild(tr);
+    });
+  }
+
+  document.getElementById('countPill').textContent =
+    todosLosMaestros.length + ' maestro' + (todosLosMaestros.length !== 1 ? 's' : '');
+  document.getElementById('infoText').textContent =
+    total > 0 ? 'Mostrando ' + (inicio+1) + '-' + fin + ' de ' + total : '';
+
+  renderPaginacion(total);
+}
+
+function renderPaginacion(total) {
+  var totalPags = Math.ceil(total / porPagina);
+  var div = document.getElementById('pagination');
+  div.innerHTML = '';
+  if (totalPags <= 1) return;
+
+  function crearBtn(texto, pag, activo, disabled) {
+    var btn = document.createElement('button');
+    btn.className = 'page-btn' + (activo ? ' active' : '');
+    btn.textContent = texto;
+    btn.disabled = disabled;
+    if (!disabled && !activo) {
+      btn.onclick = function() { paginaActual = pag; renderTabla(); };
+    }
+    return btn;
+  }
+
+  div.appendChild(crearBtn('‹', paginaActual-1, false, paginaActual===1));
+  for (var i = 1; i <= totalPags; i++) {
+    div.appendChild(crearBtn(i, i, i===paginaActual, false));
+  }
+  div.appendChild(crearBtn('›', paginaActual+1, false, paginaActual===totalPags));
+}
+
+// ── Búsqueda ──
+document.getElementById('searchBox').addEventListener('input', function() {
+  var q = this.value.toLowerCase();
+  maestrosFiltrados = todosLosMaestros.filter(function(m) {
+    return m.nombre.toLowerCase().indexOf(q) >= 0 ||
+           m.documento.toLowerCase().indexOf(q) >= 0 ||
+           m.ocupacion.toLowerCase().indexOf(q) >= 0;
+  });
+  paginaActual = 1;
+  renderTabla();
+});
+
+// ── INSERTAR ──
+document.getElementById('btnGuardar').addEventListener('click', function() {
+  // Bloqueo estricto: si ya hay operación en curso, no hacer nada
+  if (operacionEnCurso) return;
+
+  var nombre    = document.getElementById('nombre').value.trim();
+  var documento = document.getElementById('documento').value.trim();
+  var telefono  = document.getElementById('telefono').value.trim();
+  var ocupacion = document.getElementById('ocupacion').value.trim();
+
+  if (!nombre || !documento || !telefono || !ocupacion) {
+    showToast('Por favor completa todos los campos', true);
+    return;
+  }
+
+  if (documento.replace(/\D/g,'').length < 11) {
+    showToast('El documento debe tener 11 dígitos', true);
+    document.getElementById('documento').classList.add('input-error');
+    return;
+  }
+  if (telefono.replace(/\D/g,'').length < 10) {
+    showToast('El teléfono debe tener 10 dígitos', true);
+    document.getElementById('telefono').classList.add('input-error');
+    return;
+  }
+
+  document.getElementById('documento').classList.remove('input-error');
+  document.getElementById('telefono').classList.remove('input-error');
+
+  // Activar bloqueo ANTES de postMessage
+  operacionEnCurso = true;
+  document.getElementById('btnGuardar').disabled = true;
+
+  datosPendientes = { nombre:nombre, documento:documento, telefono:telefono, ocupacion:ocupacion };
+  accionPendiente = 'INSERTAR';
+  window.chrome.webview.postMessage('INSERTAR|' + nombre + '|' + documento + '|' + telefono + '|' + ocupacion);
+});
+
+// ── ELIMINAR ──
+window.eliminar = function(id) {
+  if (operacionEnCurso) return;
+  if (!confirm('¿Eliminar este maestro?')) return;
+
+  operacionEnCurso = true;
+  datosPendientes = { id: id };
+  accionPendiente = 'ELIMINAR';
+  window.chrome.webview.postMessage('ELIMINAR|' + id);
+};
+
+// ── EDICIÓN INLINE (doble clic) ──
+function iniciarEdicion(tr, m) {
+  if (filaEnEdicion || operacionEnCurso) return;
+  filaEnEdicion = tr;
+  tr.classList.add('editing');
+
+  var tds = tr.querySelectorAll('td');
+  tds[0].className = 'edit-cell';
+  tds[0].innerHTML = '<input value=""' + escHtml(m.nombre) + '"" id=""e_nombre"">';
+  tds[1].className = 'edit-cell';
+  tds[1].innerHTML = '<input value=""' + escHtml(m.documento) + '"" id=""e_documento"" maxlength=""13"">';
+  tds[2].className = 'edit-cell';
+  tds[2].innerHTML = '<input value=""' + escHtml(m.telefono) + '"" id=""e_telefono"" maxlength=""12"">';
+  tds[3].className = 'edit-cell';
+  tds[3].innerHTML = '<input value=""' + escHtml(m.ocupacion) + '"" id=""e_ocupacion"">';
+  tds[4].innerHTML = '<span style=""font-size:11px;color:#8a8a72"">Enter/Esc</span>';
+
+  formatDocumento(document.getElementById('e_documento'));
+  formatTelefono(document.getElementById('e_telefono'));
+
+  tds[0].querySelector('input').focus();
+
+  function onKey(ev) {
+    if (ev.key === 'Enter') {
+      ev.preventDefault();
+      if (operacionEnCurso) return;
+
+      var nuevoNombre = document.getElementById('e_nombre').value.trim();
+      var nuevoDoc    = document.getElementById('e_documento').value.trim();
+      var nuevoTel    = document.getElementById('e_telefono').value.trim();
+      var nuevoOcup   = document.getElementById('e_ocupacion').value.trim();
+
+      if (!nuevoNombre || !nuevoDoc || !nuevoTel || !nuevoOcup) {
+        showToast('Todos los campos son requeridos', true); return;
+      }
+      if (nuevoDoc.replace(/\D/g,'').length < 11) {
+        showToast('El documento debe tener 11 dígitos', true); return;
+      }
+      if (nuevoTel.replace(/\D/g,'').length < 10) {
+        showToast('El teléfono debe tener 10 dígitos', true); return;
+      }
+
+      // Activar bloqueo ANTES de postMessage
+      operacionEnCurso = true;
+      tr.removeEventListener('keydown', onKey, true);
+      datosPendientes = { id:m.id, nombre:nuevoNombre, documento:nuevoDoc, telefono:nuevoTel, ocupacion:nuevoOcup };
+      accionPendiente = 'ACTUALIZAR';
+      window.chrome.webview.postMessage('ACTUALIZAR|' + m.id + '|' + nuevoNombre + '|' + nuevoDoc + '|' + nuevoTel + '|' + nuevoOcup);
+    }
+    if (ev.key === 'Escape') {
+      tr.removeEventListener('keydown', onKey, true);
+      filaEnEdicion = null;
+      tr.classList.remove('editing');
+      renderTabla();
+    }
+  }
+  tr.addEventListener('keydown', onKey, true);
+}
+
+// ── Respuesta desde C# ──
+window.recibirRespuesta = function(resultado) {
+  // Liberar bloqueo
+  operacionEnCurso = false;
+  document.getElementById('btnGuardar').disabled = false;
+
+  if (resultado !== 'OK') {
+    showToast('Error en la operación. Intenta de nuevo.', true);
+    if (filaEnEdicion) { filaEnEdicion.classList.remove('editing'); filaEnEdicion = null; }
+    datosPendientes = {}; accionPendiente = ''; return;
+  }
+
+  if (accionPendiente === 'INSERTAR') {
+    document.getElementById('nombre').value = '';
+    document.getElementById('documento').value = '';
+    document.getElementById('telefono').value = '';
+    document.getElementById('ocupacion').value = '';
+    showToast(datosPendientes.nombre + ' agregado correctamente');
+  } else if (accionPendiente === 'ELIMINAR') {
+    showToast('Maestro eliminado correctamente');
+  } else if (accionPendiente === 'ACTUALIZAR') {
+    if (filaEnEdicion) { filaEnEdicion.classList.remove('editing'); filaEnEdicion = null; }
+    showToast(datosPendientes.nombre + ' actualizado correctamente');
+  }
+
+  datosPendientes = {}; accionPendiente = '';
+};
+
+// ── Carga desde C# ──
+window.cargarMaestros = function(jsonStr) {
+  todosLosMaestros = JSON.parse(jsonStr);
+  maestrosFiltrados = todosLosMaestros.slice();
+  paginaActual = 1;
+  filaEnEdicion = null;
+  renderTabla();
+};
 </script>
 </body>
 </html>
 ");
         }
-        private void webView21_Click(object sender, EventArgs e)
-        {
 
+        private async Task CargarMaestrosEnTabla()
+        {
+            try
+            {
+                List<E_Maestros> lista = objBLL.ListarMaestro("");
+                var sb = new System.Text.StringBuilder("[");
+                for (int i = 0; i < lista.Count; i++)
+                {
+                    var m = lista[i];
+                    sb.Append("{");
+                    sb.Append($"\"id\":{m.IdMaestro},");
+                    sb.Append($"\"nombre\":\"{Escape(m.NombreCompleto)}\",");
+                    sb.Append($"\"documento\":\"{Escape(m.DocumentoIdentidad)}\",");
+                    sb.Append($"\"telefono\":\"{Escape(m.Telefono)}\",");
+                    sb.Append($"\"ocupacion\":\"{Escape(m.Ocupacion)}\"");
+                    sb.Append("}");
+                    if (i < lista.Count - 1) sb.Append(",");
+                }
+                sb.Append("]");
+
+                string json = sb.ToString().Replace("'", "\\'");
+                await webView21.CoreWebView2.ExecuteScriptAsync($"cargarMaestros('{json}')");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error cargando maestros: " + ex.Message);
+            }
         }
 
-        // ================================================================
-        // ESTE MÉTODO LO COMPLETA EL BACKEND
-        // Recibe: 'nombre|documento|telefono|ocupacion'
-        // Debe llamar: MaestroService.Guardar(...)
-        // Debe responder con: recibirRespuesta('OK') o recibirRespuesta('ERROR')
-        // ================================================================
         private async void CoreWebView2_WebMessageReceived(object sender, CoreWebView2WebMessageReceivedEventArgs e)
         {
+            // Si ya hay una operación en curso en C#, descartar el mensaje duplicado
+            if (!await _semaforo.WaitAsync(0)) return;
+
             string mensaje = e.TryGetWebMessageAsString();
             string[] datos = mensaje.Split('|');
-
-            string nombre = datos[0];
-            string documento = datos[1];
-            string telefono = datos[2];
-            string ocupacion = datos[3];
-
-            // TODO (Backend): Crear la entidad Maestro
-            // Maestro maestro = new Maestro();
-            // maestro.Nombre    = nombre;
-            // maestro.Documento = documento;
-            // maestro.Telefono  = telefono;
-            // maestro.Ocupacion = ocupacion;
-
-            // TODO (Backend): Llamar la capa lógica
-            // MaestroService service = new MaestroService();
-            // bool resultado = service.Guardar(maestro);
-
-            // TODO (Backend): Reemplazar esta línea con el resultado real
+            string accion = datos[0];
             bool resultado = false;
 
-            // Responder al HTML
+            try
+            {
+                if (accion == "INSERTAR" && datos.Length >= 5)
+                {
+                    E_Maestros m = new E_Maestros
+                    {
+                        NombreCompleto = datos[1],
+                        DocumentoIdentidad = datos[2],
+                        Telefono = datos[3],
+                        Ocupacion = datos[4]
+                    };
+                    objBLL.InsertandoMaestro(m);
+                    resultado = true;
+                }
+                else if (accion == "ELIMINAR" && datos.Length >= 2)
+                {
+                    E_Maestros m = new E_Maestros { IdMaestro = int.Parse(datos[1]) };
+                    objBLL.EliminandoMaestro(m);
+                    resultado = true;
+                }
+                else if (accion == "ACTUALIZAR" && datos.Length >= 6)
+                {
+                    E_Maestros m = new E_Maestros
+                    {
+                        IdMaestro = int.Parse(datos[1]),
+                        NombreCompleto = datos[2],
+                        DocumentoIdentidad = datos[3],
+                        Telefono = datos[4],
+                        Ocupacion = datos[5]
+                    };
+                    objBLL.ModificandoMaestro(m);
+                    resultado = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                resultado = false;
+            }
+            finally
+            {
+                // Siempre liberar el semáforo al terminar la operación de BD
+                _semaforo.Release();
+            }
+
             string respuesta = resultado ? "'OK'" : "'ERROR'";
+
+            // Primero notificar al JS, luego recargar la tabla
             await webView21.CoreWebView2.ExecuteScriptAsync($"recibirRespuesta({respuesta})");
+
+            if (resultado)
+            {
+                await CargarMaestrosEnTabla();
+            }
         }
+
+        private string Escape(string s)
+        {
+            if (s == null) return "";
+            return s.Replace("\\", "\\\\")
+                    .Replace("\"", "\\\"")
+                    .Replace("\n", "\\n")
+                    .Replace("\r", "\\r");
+        }
+
+        private void webView21_Click(object sender, EventArgs e) { }
     }
 }
-
-
