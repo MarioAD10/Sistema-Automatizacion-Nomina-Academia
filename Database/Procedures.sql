@@ -90,6 +90,31 @@ BEGIN
 END;
 
 
+
+-----------------------------------------
+-----------------------------------------
+--SP - Usuarios
+-----------------------------------------
+-----------------------------------------
+
+
+CREATE PROCEDURE sp_LoginUsuario
+    @Nombre VARCHAR(100),
+    @Password VARCHAR(100)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT 
+        Nombre,
+        Rol
+    FROM Usuario
+    WHERE Nombre = @Nombre
+    AND Password = @Password;
+END
+GO
+
+
 -- CHEQUEOS 
 
 SELECT name 
