@@ -1,6 +1,4 @@
 USE SistemaNominaDB;
-
-
 -----------------------------------------
 -----------------------------------------
 --TABLA USUARIOS
@@ -15,12 +13,10 @@ CREATE TABLE Usuario (
 );
 
 -- Inserts
-
 INSERT INTO Usuario (Nombre, Password, Rol)
 VALUES
 ('Mario', '1234', 'Admin'),
 ('Tony', '1111', 'Admin');
-
 
 
 -----------------------------------------
@@ -28,7 +24,6 @@ VALUES
 --TABLA MAESTROS 
 -----------------------------------------
 -----------------------------------------
-
 CREATE TABLE Maestros (
     IdMaestro INT IDENTITY(1,1) PRIMARY KEY,
     NombreCompleto VARCHAR(150) NOT NULL,
@@ -36,7 +31,3 @@ CREATE TABLE Maestros (
     Telefono VARCHAR(20) NOT NULL,
     Ocupacion VARCHAR(100) NOT NULL
 );
-
-
-
-
